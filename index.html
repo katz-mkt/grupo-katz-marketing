@@ -297,6 +297,61 @@
       border-radius: 50%; flex-shrink: 0;
     }
 
+    /* ── TOP POSTS ── */
+    .top-post-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .top-post-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.4);
+    }
+    .top-post-thumb {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover; display: block;
+      background: var(--border);
+    }
+    .top-post-body { padding: 14px 16px; }
+    .top-post-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+    }
+    .top-post-rank {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid rgba(201,169,110,.3);
+      color: var(--gold); font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .top-post-account { font-size: 12px; font-weight: 700; }
+    .top-post-date { font-size: 11px; color: var(--muted); margin-left: auto; }
+    .top-post-caption {
+      font-size: 12px; color: var(--dim); line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .top-post-metrics {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .top-post-metric {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 700;
+    }
+    .top-post-metric span { font-size: 11px; color: var(--muted); font-weight: 400; }
+    .top-post-type {
+      margin-left: auto; font-size: 10px; font-weight: 700;
+      padding: 2px 7px; border-radius: 4px;
+      background: rgba(255,255,255,.05); color: var(--muted);
+    }
+    .top-post-link {
+      display: block; text-align: center; font-size: 11px;
+      color: var(--muted); text-decoration: none;
+      padding: 8px; border-top: 1px solid var(--border);
+      transition: color .15s;
+    }
+    .top-post-link:hover { color: var(--gold-light); }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -456,6 +511,15 @@
         </table>
       </div>
     </div>
+  </div>
+
+  <!-- TOP POSTS DA SEMANA -->
+  <div class="section" id="topPostsSection">
+    <div class="sec-header">
+      <div class="sec-title">🏆 Top Posts da Semana</div>
+      <div style="font-size:11px;color:var(--muted)">por curtidas + comentários</div>
+    </div>
+    <div id="topPostsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px"></div>
   </div>
 
   <!-- OUTRAS REDES -->
@@ -712,6 +776,31 @@ document.getElementById('igAdvBody').innerHTML = sortedIG.map(a => `
     <td>${fmt(a.stories_week)}</td>
     <td>${fmt(a.reels_week)}</td>
   </tr>
+`).join('');
+
+// ── TOP POSTS ────────────────────────────────────────────────
+const typeLabel = { VIDEO: '🎬 Reels', CAROUSEL_ALBUM: '🖼 Carrossel', IMAGE: '📷 Foto' };
+document.getElementById('topPostsGrid').innerHTML = (DATA.top_posts || []).map((p, i) => `
+  <div class="top-post-card">
+    <img class="top-post-thumb" src="${p.thumb}" alt="Post ${i+1}" loading="lazy"
+         onerror="this.style.background='var(--card-hover)';this.style.minHeight='200px'">
+    <div class="top-post-body">
+      <div class="top-post-header">
+        <div class="top-post-rank">${i+1}</div>
+        <div>
+          <div class="top-post-account" style="color:${p.account_color}">${p.account_name}</div>
+        </div>
+        <div class="top-post-date">${p.date}</div>
+      </div>
+      <div class="top-post-caption">${p.caption.replace(/\n/g,'<br>')}</div>
+      <div class="top-post-metrics">
+        <div class="top-post-metric">❤️ ${p.likes.toLocaleString('pt-BR')} <span>curtidas</span></div>
+        <div class="top-post-metric">💬 ${p.comments} <span>coment.</span></div>
+        <div class="top-post-type">${typeLabel[p.type] || p.type}</div>
+      </div>
+    </div>
+    <a class="top-post-link" href="${p.url}" target="_blank" rel="noopener">Ver no Instagram ↗</a>
+  </div>
 `).join('');
 
 // ── OTHER NETWORKS TABLE ──────────────────────────────────────

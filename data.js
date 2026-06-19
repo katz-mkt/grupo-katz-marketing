@@ -152,6 +152,49 @@ const DATA = {
     }
   ],
 
+  // Top posts da semana — update.js atualiza automaticamente
+  top_posts: [
+    {
+      account_id   : "katz",
+      account_name : "Katz Empreendimentos",
+      account_color: "#C9A96E",
+      post_id      : "18106166284968694",
+      type         : "VIDEO",
+      date         : "17/06/2026",
+      likes        : 36,
+      comments     : 1,
+      thumb        : "thumbs/top_katz_1.jpg",
+      caption      : "Por que Acuruí?\nLocalizado na Estrada Real, o Haras do Passo está a 50 min de BH, mas totalmente imerso na natureza.",
+      url          : "https://www.instagram.com/reel/DLIgzYFOpZT/"
+    },
+    {
+      account_id   : "hauz",
+      account_name : "Hauz Construções",
+      account_color: "#2E86AB",
+      post_id      : "18012302648715681",
+      type         : "VIDEO",
+      date         : "17/06/2026",
+      likes        : 28,
+      comments     : 1,
+      thumb        : "thumbs/top_hauz_2.jpg",
+      caption      : "Implantada com rigor geométrico às margens do lago, a PCN evidencia o domínio técnico na articulação de volumes ortogonais.",
+      url          : "https://www.instagram.com/reel/DLJpQ5gOFIh/"
+    },
+    {
+      account_id   : "hauz",
+      account_name : "Hauz Construções",
+      account_color: "#2E86AB",
+      post_id      : "17963039988121082",
+      type         : "CAROUSEL_ALBUM",
+      date         : "15/06/2026",
+      likes        : 26,
+      comments     : 0,
+      thumb        : "thumbs/top_hauz_3.jpg",
+      caption      : "REN | MINAS GERAIS\nProjeto Arquitetônico: Jacobsen Arquitetura\nImagens: Fran Parente\nConstrução: Hauz Construções",
+      url          : "https://www.instagram.com/p/DLFHXlzOHOC/"
+    }
+  ],
+
   // Histórico semanal — update.js adiciona 1 entrada por semana automaticamente
   history: [
     {
