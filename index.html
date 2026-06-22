@@ -9,32 +9,25 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #09090F;
-      --surface:     #111218;
-      --card:        #16181F;
-      --card-hover:  #1C1F2A;
-      --border:      #22252E;
-      --border-hi:   #2E3140;
-      --text:        #E8EAF0;
-      --dim:         #9CA3B0;
-      --muted:       #5C6070;
-      --gold:        #C9A96E;
-      --gold-light:  #E5C88E;
-      --gold-dim:    rgba(201,169,110,.10);
-      --green:       #4ADE80;
-      --red:         #F87171;
-      --radius:      12px;
+      --bg:         #09090F;
+      --surface:    #111218;
+      --card:       #16181F;
+      --card-hover: #1C1F2A;
+      --border:     #22252E;
+      --border-hi:  #2E3140;
+      --text:       #E8EAF0;
+      --dim:        #9CA3B0;
+      --muted:      #5C6070;
+      --gold:       #C9A96E;
+      --gold-light: #E5C88E;
+      --gold-dim:   rgba(201,169,110,.10);
+      --green:      #4ADE80;
+      --red:        #F87171;
+      --radius:     12px;
     }
 
     html { font-size: 14px; scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      min-height: 100vh;
-    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; line-height: 1.5; min-height: 100vh; }
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -43,202 +36,111 @@
     /* ── HEADER ── */
     header {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(17,18,24,.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 28px;
+      background: rgba(17,18,24,.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); height: 60px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 28px;
     }
-
     .h-left { display: flex; align-items: center; gap: 14px; }
-
-    .h-logo {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 15px; font-weight: 800; color: var(--gold);
-      letter-spacing: -.02em;
-    }
-    .h-logo-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
-    }
-
+    .h-logo { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; color: var(--gold); letter-spacing: -.02em; }
+    .h-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
     .h-divider { color: var(--border-hi); font-size: 18px; }
     .h-sub { font-size: 13px; color: var(--muted); }
-
     .h-right { display: flex; align-items: center; gap: 10px; }
-
-    .badge {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 11.5px; color: var(--dim);
-      background: var(--card); border: 1px solid var(--border);
-      padding: 5px 12px; border-radius: 20px;
-    }
+    .badge { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--dim); background: var(--card); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; }
     .badge.gold { color: var(--gold-light); border-color: rgba(201,169,110,.3); background: var(--gold-dim); }
-
-    .pulse-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: var(--green);
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+    .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
 
     /* ── MAIN ── */
     main { max-width: 1440px; margin: 0 auto; padding: 28px 28px 72px; }
 
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      display: flex; align-items: center; gap: 8px;
-      margin-bottom: 26px; flex-wrap: wrap;
+    /* ── FILTER PANEL ── */
+    .filter-panel {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 20px;
+      margin-bottom: 26px; display: flex; flex-direction: column; gap: 12px;
     }
+    .fp-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;
+    }
+    .fp-title { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; }
+    .fp-reset {
+      font-size: 11px; color: var(--muted); background: none; border: 1px solid var(--border);
+      border-radius: 6px; cursor: pointer; padding: 3px 10px; transition: all .15s;
+    }
+    .fp-reset:hover { color: var(--gold-light); border-color: rgba(201,169,110,.4); background: var(--gold-dim); }
+    .fp-sep { height: 1px; background: var(--border); }
+
+    .fg { display: flex; align-items: flex-start; gap: 16px; }
+    .fg-lbl {
+      font-size: 10px; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .09em;
+      white-space: nowrap; padding-top: 6px; min-width: 118px;
+    }
+    .fg-pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 
     .fpill {
-      display: flex; align-items: center; gap: 7px;
-      padding: 6px 15px; border-radius: 20px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--muted); font-size: 12.5px; font-weight: 500;
-      cursor: pointer; transition: all .15s; user-select: none;
+      display: flex; align-items: center; gap: 6px;
+      padding: 5px 13px; border-radius: 20px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--muted); font-size: 12px; font-weight: 500;
+      cursor: pointer; transition: all .15s; user-select: none; line-height: 1;
     }
-    .fpill:hover { border-color: var(--border-hi); color: var(--dim); }
-    .fpill.active {
-      background: var(--gold-dim); border-color: rgba(201,169,110,.5);
-      color: var(--gold-light); font-weight: 600;
+    .fpill:hover { border-color: var(--border-hi); color: var(--dim); background: var(--card-hover); }
+    .fpill.active { background: var(--gold-dim); border-color: rgba(201,169,110,.5); color: var(--gold-light); font-weight: 600; }
+    .fpill .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+    .date-input {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: 12px; padding: 5px 10px; outline: none; cursor: pointer;
+      transition: border-color .15s;
     }
-    .fpill .cnt {
-      font-size: 10.5px; font-weight: 700;
-      background: rgba(255,255,255,.07);
-      padding: 1px 7px; border-radius: 10px;
-    }
+    .date-input:focus { border-color: rgba(201,169,110,.5); }
+    ::-webkit-calendar-picker-indicator { filter: invert(.7) opacity(.6); cursor: pointer; }
+
+    .custom-dates { display: none; align-items: center; gap: 8px; }
+    .custom-dates.show { display: flex; }
 
     /* ── SECTION ── */
     .section { margin-bottom: 28px; }
+    .sec-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .sec-title { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; }
 
-    .sec-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 14px;
-    }
-
-    .sec-title {
-      font-size: 11px; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .09em;
-    }
-
-    /* ── KPI CARDS ── */
-    .kpi-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px; margin-bottom: 28px;
-    }
-
-    .kpi {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px 22px;
-      position: relative; overflow: hidden;
-    }
-    .kpi::after {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--gold) 0%, transparent 70%);
-    }
-
+    /* ── KPI ROW ── */
+    .kpi-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 28px; }
+    .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; position: relative; overflow: hidden; }
+    .kpi::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg,var(--gold) 0%,transparent 70%); }
     .kpi-label { font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; }
-    .kpi-val {
-      font-size: 34px; font-weight: 900;
-      color: var(--text); line-height: 1.1;
-      margin: 8px 0 4px; letter-spacing: -.025em;
-    }
+    .kpi-val { font-size: 34px; font-weight: 900; color: var(--text); line-height: 1.1; margin: 8px 0 4px; letter-spacing: -.025em; }
     .kpi-sub { font-size: 11.5px; color: var(--muted); }
-    .kpi-sub .up   { color: var(--green); }
-    .kpi-sub .down { color: var(--red);   }
 
     /* ── ACCOUNT CARDS ── */
-    .ac-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(295px,1fr));
-      gap: 14px;
-    }
-
-    .ac {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 18px 16px;
-      position: relative; overflow: hidden;
-      transition: transform .18s, border-color .18s, box-shadow .18s;
-      cursor: default;
-    }
-    .ac:hover {
-      transform: translateY(-3px);
-      border-color: var(--border-hi);
-      box-shadow: 0 10px 40px rgba(0,0,0,.4);
-    }
-
-    .ac-bar {
-      position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
-    }
-
-    .ac-top {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding-left: 10px; margin-bottom: 16px;
-    }
+    .ac-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(295px,1fr)); gap: 14px; }
+    .ac { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 18px 16px; position: relative; overflow: hidden; transition: transform .18s, border-color .18s, box-shadow .18s; }
+    .ac:hover { transform: translateY(-3px); border-color: var(--border-hi); box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+    .ac-bar { position: absolute; top: 0; left: 0; bottom: 0; width: 3px; }
+    .ac-top { display: flex; justify-content: space-between; align-items: flex-start; padding-left: 10px; margin-bottom: 16px; }
     .ac-name { font-size: 13.5px; font-weight: 700; }
     .ac-user { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
-
-    .ptag {
-      font-size: 10.5px; font-weight: 700;
-      padding: 4px 9px; border-radius: 6px;
-      background: rgba(255,255,255,.05); color: var(--muted);
-    }
-
-    .ac-metrics {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 10px; padding-left: 10px;
-    }
-    .ac-metric-val {
-      font-size: 28px; font-weight: 900; letter-spacing: -.025em;
-    }
+    .ptag { font-size: 10.5px; font-weight: 700; padding: 4px 9px; border-radius: 6px; background: rgba(255,255,255,.05); color: var(--muted); }
+    .ac-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-left: 10px; }
+    .ac-metric-val { font-size: 28px; font-weight: 900; letter-spacing: -.025em; }
     .ac-metric-lbl { font-size: 11px; color: var(--muted); margin-top: 1px; }
-
-    .ac-link {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 11px; color: var(--muted); text-decoration: none;
-      margin-top: 14px; padding-left: 10px;
-      transition: color .15s;
-    }
+    .ac-link { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--muted); text-decoration: none; margin-top: 14px; padding-left: 10px; transition: color .15s; }
     .ac-link:hover { color: var(--gold-light); }
 
-    /* ── SORT BAR ── */
+    /* ── SORT ── */
     .sort-bar { display: flex; align-items: center; gap: 6px; }
     .sort-lbl { font-size: 11px; color: var(--muted); }
-    .sbtn {
-      padding: 4px 10px; border-radius: 6px;
-      border: 1px solid var(--border); background: transparent;
-      color: var(--muted); font-size: 11px; cursor: pointer;
-      transition: all .15s;
-    }
-    .sbtn:hover, .sbtn.active {
-      background: var(--border-hi); color: var(--text);
-    }
+    .sbtn { padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 11px; cursor: pointer; transition: all .15s; }
+    .sbtn:hover, .sbtn.active { background: var(--border-hi); color: var(--text); }
 
     /* ── CHARTS ── */
-    .charts-row {
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 14px;
-    }
-
-    .chart-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 22px;
-    }
+    .charts-row { display: grid; grid-template-columns: 360px 1fr; gap: 14px; }
+    .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
     .chart-title { font-size: 12px; font-weight: 700; color: var(--dim); margin-bottom: 18px; }
-    .chart-wrap { position: relative; }
-
     .legend-list { display: flex; flex-direction: column; gap: 9px; margin-top: 18px; }
-    .legend-item {
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 12px;
-    }
+    .legend-item { display: flex; align-items: center; justify-content: space-between; font-size: 12px; }
     .legend-left { display: flex; align-items: center; gap: 8px; color: var(--dim); }
     .ldot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .legend-right { display: flex; align-items: baseline; gap: 4px; }
@@ -246,180 +148,129 @@
     .legend-pct { font-size: 10.5px; color: var(--muted); }
 
     /* ── TABLES ── */
-    .table-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-    }
-
-    .table-head {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-
-    .mtag {
-      font-size: 10.5px; font-weight: 700;
-      padding: 3px 9px; border-radius: 4px;
-      background: var(--gold-dim); color: var(--gold);
-    }
-
+    .table-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .table-head { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .mtag { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 4px; background: var(--gold-dim); color: var(--gold); }
     table { width: 100%; border-collapse: collapse; }
-
-    thead th {
-      font-size: 10.5px; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .07em;
-      padding: 9px 16px; text-align: left;
-      background: rgba(255,255,255,.015);
-      border-bottom: 1px solid var(--border);
-    }
-
-    tbody td {
-      padding: 13px 16px; font-size: 12.5px; color: var(--text);
-      border-bottom: 1px solid rgba(255,255,255,.025);
-      vertical-align: middle;
-    }
+    thead th { font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; padding: 9px 16px; text-align: left; background: rgba(255,255,255,.015); border-bottom: 1px solid var(--border); }
+    tbody td { padding: 13px 16px; font-size: 12.5px; color: var(--text); border-bottom: 1px solid rgba(255,255,255,.025); vertical-align: middle; }
     tbody tr:last-child td { border-bottom: none; }
     tbody tr:hover td { background: rgba(255,255,255,.018); }
-
     .null { color: var(--muted); }
-
-    .picon {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 26px; height: 26px; border-radius: 6px;
-      font-size: 9.5px; font-weight: 900; color: #fff;
-    }
-
-    .ac-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-    }
-    .ac-bar-sm {
-      display: inline-block; width: 7px; height: 7px;
-      border-radius: 50%; flex-shrink: 0;
-    }
+    .picon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; font-size: 9.5px; font-weight: 900; color: #fff; }
+    .ac-badge { display: inline-flex; align-items: center; gap: 6px; }
+    .ac-bar-sm { display: inline-block; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
     /* ── TOP POSTS ── */
-    .top-post-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-      transition: transform .18s, box-shadow .18s;
-    }
-    .top-post-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px rgba(0,0,0,.4);
-    }
-    .top-post-thumb {
-      width: 100%; aspect-ratio: 1/1;
-      object-fit: cover; display: block;
-      background: var(--border);
-    }
+    .top-post-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform .18s, box-shadow .18s; }
+    .top-post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+    .top-post-thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: var(--border); }
     .top-post-body { padding: 14px 16px; }
-    .top-post-header {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
-    }
-    .top-post-rank {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--gold-dim); border: 1px solid rgba(201,169,110,.3);
-      color: var(--gold); font-size: 11px; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
+    .top-post-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .top-post-rank { width: 22px; height: 22px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(201,169,110,.3); color: var(--gold); font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .top-post-account { font-size: 12px; font-weight: 700; }
     .top-post-date { font-size: 11px; color: var(--muted); margin-left: auto; }
-    .top-post-caption {
-      font-size: 12px; color: var(--dim); line-height: 1.5;
-      display: -webkit-box; -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical; overflow: hidden;
-      margin-bottom: 12px;
-    }
-    .top-post-metrics {
-      display: flex; align-items: center; gap: 16px;
-    }
-    .top-post-metric {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 13px; font-weight: 700;
-    }
+    .top-post-caption { font-size: 12px; color: var(--dim); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 12px; }
+    .top-post-metrics { display: flex; align-items: center; gap: 16px; }
+    .top-post-metric { display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; }
     .top-post-metric span { font-size: 11px; color: var(--muted); font-weight: 400; }
-    .top-post-type {
-      margin-left: auto; font-size: 10px; font-weight: 700;
-      padding: 2px 7px; border-radius: 4px;
-      background: rgba(255,255,255,.05); color: var(--muted);
-    }
-    .top-post-link {
-      display: block; text-align: center; font-size: 11px;
-      color: var(--muted); text-decoration: none;
-      padding: 8px; border-top: 1px solid var(--border);
-      transition: color .15s;
-    }
+    .top-post-type { margin-left: auto; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; background: rgba(255,255,255,.05); color: var(--muted); }
+    .top-post-link { display: block; text-align: center; font-size: 11px; color: var(--muted); text-decoration: none; padding: 8px; border-top: 1px solid var(--border); transition: color .15s; }
     .top-post-link:hover { color: var(--gold-light); }
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 14px 28px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--surface);
-    }
+    footer { border-top: 1px solid var(--border); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; background: var(--surface); }
     .ft { font-size: 11.5px; color: var(--muted); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .charts-row { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1100px) { .charts-row { grid-template-columns: 1fr; } }
     @media (max-width: 768px) {
-      header { padding: 0 14px; }
-      main { padding: 14px; }
-      .kpi-row { grid-template-columns: repeat(2,1fr); }
-      .h-sub { display: none; }
+      header { padding: 0 14px; } main { padding: 14px; }
+      .kpi-row { grid-template-columns: repeat(2,1fr); } .h-sub { display: none; }
+      .fg { flex-direction: column; gap: 6px; } .fg-lbl { min-width: unset; padding-top: 0; }
     }
-    @media (max-width: 480px) {
-      .kpi-row { grid-template-columns: 1fr; }
-      .ac-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 480px) { .kpi-row { grid-template-columns: 1fr; } .ac-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- ══════════ HEADER ══════════ -->
+<!-- HEADER -->
 <header>
   <div class="h-left">
-    <div class="h-logo">
-      <div class="h-logo-dot"></div>
-      GRUPO KATZ
-    </div>
+    <div class="h-logo"><div class="h-logo-dot"></div>GRUPO KATZ</div>
     <span class="h-divider">|</span>
     <span class="h-sub">Relatório de Marketing — Redes Sociais</span>
   </div>
   <div class="h-right">
-    <div class="badge">
-      <div class="pulse-dot"></div>
-      Atualizado: <strong id="lastUpdated"></strong>
-    </div>
-    <div class="badge gold">
-      Próxima atualização: <strong id="nextUpdate"></strong>
-    </div>
+    <div class="badge"><div class="pulse-dot"></div>Atualizado: <strong id="lastUpdated"></strong></div>
+    <div class="badge gold">Próxima atualização: <strong id="nextUpdate"></strong></div>
   </div>
 </header>
 
-<!-- ══════════ MAIN ══════════ -->
 <main>
 
-  <!-- FILTROS -->
-  <div class="filter-bar" id="filterBar">
-    <button class="fpill active" data-filter="all">
-      Todas as Redes <span class="cnt" id="cntAll"></span>
-    </button>
-    <button class="fpill" data-filter="instagram">
-      📷 Instagram <span class="cnt" id="cntIG"></span>
-    </button>
-    <button class="fpill" data-filter="linkedin">
-      💼 LinkedIn
-    </button>
-    <button class="fpill" data-filter="youtube">
-      ▶ YouTube
-    </button>
-    <button class="fpill" data-filter="tiktok">
-      🎵 TikTok
-    </button>
+  <!-- ══ PAINEL DE FILTROS ══ -->
+  <div class="filter-panel" id="filterPanel">
+    <div class="fp-header">
+      <span class="fp-title">⚙ Filtros</span>
+      <button class="fp-reset" onclick="resetFilters()">↺ Limpar filtros</button>
+    </div>
+    <div class="fp-sep"></div>
+
+    <!-- Rede Social -->
+    <div class="fg">
+      <span class="fg-lbl">Rede Social</span>
+      <div class="fg-pills">
+        <button class="fpill active" data-group="platform" data-val="all">Todas</button>
+        <button class="fpill" data-group="platform" data-val="instagram">📷 Instagram</button>
+        <button class="fpill" data-group="platform" data-val="linkedin">💼 LinkedIn</button>
+        <button class="fpill" data-group="platform" data-val="youtube">▶ YouTube</button>
+        <button class="fpill" data-group="platform" data-val="tiktok">🎵 TikTok</button>
+      </div>
+    </div>
+
+    <!-- Empresa / Conta -->
+    <div class="fg" id="fgAccountRow">
+      <span class="fg-lbl">Empresa / Conta</span>
+      <div class="fg-pills" id="fgAccount">
+        <button class="fpill active" data-group="account" data-val="all">Todas as contas</button>
+        <!-- preenchido pelo JS -->
+      </div>
+    </div>
+
+    <!-- KPI em Destaque -->
+    <div class="fg">
+      <span class="fg-lbl">KPI em Destaque</span>
+      <div class="fg-pills">
+        <button class="fpill active" data-group="kpi" data-val="followers">Seguidores</button>
+        <button class="fpill" data-group="kpi" data-val="posts">Posts Total</button>
+        <button class="fpill" data-group="kpi" data-val="new_followers">Novos Seguidores</button>
+        <button class="fpill" data-group="kpi" data-val="reach">Alcance</button>
+        <button class="fpill" data-group="kpi" data-val="impressions">Impressões</button>
+        <button class="fpill" data-group="kpi" data-val="engagement">Engajamento %</button>
+        <button class="fpill" data-group="kpi" data-val="posts_week">Posts/Semana</button>
+        <button class="fpill" data-group="kpi" data-val="stories_week">Stories/Semana</button>
+        <button class="fpill" data-group="kpi" data-val="reels_week">Reels/Semana</button>
+      </div>
+    </div>
+
+    <!-- Período -->
+    <div class="fg">
+      <span class="fg-lbl">Período</span>
+      <div class="fg-pills">
+        <button class="fpill active" data-group="period" data-val="all">Todo o histórico</button>
+        <button class="fpill" data-group="period" data-val="4w">Últimas 4 semanas</button>
+        <button class="fpill" data-group="period" data-val="8w">Últimas 8 semanas</button>
+        <button class="fpill" data-group="period" data-val="3m">Últimos 3 meses</button>
+        <button class="fpill" data-group="period" data-val="custom">Personalizado</button>
+        <div class="custom-dates" id="customDates">
+          <input type="date" id="dateFrom" class="date-input" />
+          <span style="color:var(--muted);font-size:11px">→</span>
+          <input type="date" id="dateTo" class="date-input" />
+          <button class="fpill" onclick="applyCustomDates()" style="margin-left:2px">Aplicar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- KPIs -->
@@ -427,17 +278,17 @@
     <div class="kpi">
       <div class="kpi-label">Total de Seguidores</div>
       <div class="kpi-val" id="kpiFollowers">—</div>
-      <div class="kpi-sub" id="kpiFollowersSub">Instagram • contas ativas</div>
+      <div class="kpi-sub" id="kpiFollowersSub">—</div>
     </div>
     <div class="kpi">
-      <div class="kpi-label">Contas Monitoradas</div>
+      <div class="kpi-label">Contas Visíveis</div>
       <div class="kpi-val" id="kpiContas">—</div>
-      <div class="kpi-sub">Conectadas via API</div>
+      <div class="kpi-sub" id="kpiContasSub">—</div>
     </div>
     <div class="kpi">
-      <div class="kpi-label">Total de Posts</div>
-      <div class="kpi-val" id="kpiPosts">—</div>
-      <div class="kpi-sub">Histórico acumulado</div>
+      <div class="kpi-label" id="kpiHlLabel">KPI Selecionado</div>
+      <div class="kpi-val" id="kpiHl">—</div>
+      <div class="kpi-sub" id="kpiHlSub">—</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Maior Conta</div>
@@ -446,15 +297,15 @@
     </div>
   </div>
 
-  <!-- CONTAS INSTAGRAM -->
+  <!-- INSTAGRAM CARDS -->
   <div class="section" id="igSection">
     <div class="sec-header">
-      <div class="sec-title">📷 Instagram — Contas Ativas</div>
+      <div class="sec-title">📷 Instagram — Contas</div>
       <div class="sort-bar">
         <span class="sort-lbl">Ordenar:</span>
-        <button class="sbtn active" id="sbFollowers" onclick="sortBy('followers')">Seguidores</button>
-        <button class="sbtn" id="sbPosts" onclick="sortBy('posts')">Posts</button>
-        <button class="sbtn" id="sbName" onclick="sortBy('name')">Nome</button>
+        <button class="sbtn active" id="sbFollowers" onclick="setSortBy('followers')">Seguidores</button>
+        <button class="sbtn" id="sbPosts" onclick="setSortBy('posts')">Posts</button>
+        <button class="sbtn" id="sbName" onclick="setSortBy('name')">Nome</button>
       </div>
     </div>
     <div class="ac-grid" id="acGrid"></div>
@@ -464,56 +315,39 @@
   <div class="section" id="chartsSection">
     <div class="sec-title" style="margin-bottom:14px">Distribuição &amp; Evolução</div>
     <div class="charts-row">
-
       <div class="chart-card">
         <div class="chart-title">Seguidores por Conta</div>
-        <div class="chart-wrap" style="height:210px">
-          <canvas id="donutChart"></canvas>
-        </div>
+        <div style="position:relative;height:210px"><canvas id="donutChart"></canvas></div>
         <div class="legend-list" id="donutLegend"></div>
       </div>
-
       <div class="chart-card">
         <div class="chart-title">Evolução Semanal de Seguidores</div>
-        <div class="chart-wrap" style="height:280px">
-          <canvas id="lineChart"></canvas>
-        </div>
-        <div style="font-size:10.5px;color:var(--muted);margin-top:8px">
-          ★ Histórico acumulado semana a semana. Iniciado em 17/06/2026.
-        </div>
+        <div style="position:relative;height:280px"><canvas id="lineChart"></canvas></div>
+        <div style="font-size:10.5px;color:var(--muted);margin-top:8px">★ Histórico acumulado semana a semana.</div>
       </div>
-
     </div>
   </div>
 
-  <!-- MÉTRICAS AVANÇADAS IG -->
+  <!-- MÉTRICAS SEMANAIS IG -->
   <div class="section" id="igAdvSection">
     <div class="table-card">
       <div class="table-head">
         <div class="sec-title" style="margin:0">Métricas Semanais — Instagram</div>
-        <span class="mtag">Inserção Manual / Meta Business Suite</span>
+        <span class="mtag">Manual / Meta Business Suite</span>
       </div>
       <div style="overflow-x:auto">
         <table>
-          <thead>
-            <tr>
-              <th>Conta</th>
-              <th>Novos Seguidores</th>
-              <th>Alcance</th>
-              <th>Impressões</th>
-              <th>Taxa de Engajamento</th>
-              <th>Posts</th>
-              <th>Stories</th>
-              <th>Reels</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th>Conta</th><th>Novos Seguidores</th><th>Alcance</th>
+            <th>Impressões</th><th>Engajamento</th><th>Posts</th><th>Stories</th><th>Reels</th>
+          </tr></thead>
           <tbody id="igAdvBody"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- TOP POSTS DA SEMANA -->
+  <!-- TOP POSTS -->
   <div class="section" id="topPostsSection">
     <div class="sec-header">
       <div class="sec-title">🏆 Top Posts da Semana</div>
@@ -531,18 +365,10 @@
       </div>
       <div style="overflow-x:auto">
         <table>
-          <thead>
-            <tr>
-              <th>Plataforma</th>
-              <th>Conta / Canal</th>
-              <th>Seguidores / Inscritos</th>
-              <th>Posts (semana)</th>
-              <th>Alcance (semana)</th>
-              <th>Impressões (semana)</th>
-              <th>Engajamento</th>
-              <th>Observações</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th>Plataforma</th><th>Conta / Canal</th><th>Seguidores</th>
+            <th>Posts (semana)</th><th>Alcance</th><th>Impressões</th><th>Engajamento</th><th>Observações</th>
+          </tr></thead>
           <tbody id="otherBody"></tbody>
         </table>
       </div>
@@ -551,277 +377,309 @@
 
 </main>
 
-<!-- ══════════ FOOTER ══════════ -->
 <footer>
-  <div class="ft">Grupo Katz · Setor de Marketing · Atualização semanal automática via Claude</div>
-  <div class="ft">Semana <strong id="ftWeek"></strong>/2026 &nbsp;·&nbsp; Período: <strong id="ftPeriod"></strong></div>
+  <div class="ft">Grupo Katz · Setor de Marketing · Atualização semanal automática</div>
+  <div class="ft">Semana <strong id="ftWeek"></strong>/2026 &nbsp;·&nbsp; <strong id="ftPeriod"></strong></div>
 </footer>
 
-
-<!-- Dados atualizados semanalmente pelo update.js -->
 <script src="data.js"></script>
-
-<!-- ══════════ APP ══════════ -->
 <script>
 // ── helpers ──────────────────────────────────────────────────
-function fmt(n, forceK=false) {
+function fmt(n) {
   if (n == null) return '<span class="null">—</span>';
-  if (n >= 1000000) return (n/1e6).toFixed(1) + 'M';
-  if (n >= 1000 || forceK) return (n/1e3).toFixed(n >= 10000 ? 0 : 1) + 'k';
+  if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+  if (n >= 1000) return (n/1e3).toFixed(n>=10000?0:1)+'k';
   return n.toLocaleString('pt-BR');
 }
-function fmtN(n) {
-  return n == null ? '—' : n.toLocaleString('pt-BR');
-}
-function fmtPct(n) {
-  return n == null ? '<span class="null">—</span>' : n.toFixed(2) + '%';
-}
-function total(arr, key) { return arr.reduce((s,a) => s + (a[key]||0), 0); }
+function fmtN(n) { return n == null ? '—' : n.toLocaleString('pt-BR'); }
+function fmtPct(n) { return n == null ? '<span class="null">—</span>' : n.toFixed(2)+'%'; }
+function parseDate(s) { const [d,m,y]=s.split('/'); return new Date(+y,+m-1,+d); }
 
-// ── totals ───────────────────────────────────────────────────
+// ── KPI config ───────────────────────────────────────────────
+const KPI = {
+  followers:    { label:'Seguidores',        fmt: v=>fmtN(v), agg:'sum' },
+  posts:        { label:'Posts Total',        fmt: v=>fmtN(v), agg:'sum' },
+  new_followers:{ label:'Novos Seguidores',   fmt: v=>fmtN(v), agg:'sum' },
+  reach:        { label:'Alcance',            fmt: v=>fmt(v),  agg:'sum' },
+  impressions:  { label:'Impressões',         fmt: v=>fmt(v),  agg:'sum' },
+  engagement:   { label:'Engajamento',        fmt: v=>v.toFixed(2)+'%', agg:'avg' },
+  posts_week:   { label:'Posts/Semana',       fmt: v=>fmtN(v), agg:'sum' },
+  stories_week: { label:'Stories/Semana',     fmt: v=>fmtN(v), agg:'sum' },
+  reels_week:   { label:'Reels/Semana',       fmt: v=>fmtN(v), agg:'sum' },
+};
+
+// ── State ────────────────────────────────────────────────────
+const S = { platform:'all', account:'all', kpi:'followers', period:'all', dateFrom:null, dateTo:null, sort:'followers' };
+
+// ── Chart instances ──────────────────────────────────────────
+let donutCh, lineCh;
+
+// ── Bootstrap ────────────────────────────────────────────────
 const IG = DATA.instagram;
-const totalF = total(IG, 'followers');
-const totalP = total(IG, 'posts');
-const topAc  = [...IG].sort((a,b) => b.followers - a.followers)[0];
+const acMap = Object.fromEntries(IG.map(a=>[a.id,a]));
 
-// ── header / footer ──────────────────────────────────────────
 document.getElementById('lastUpdated').textContent = DATA.meta.lastUpdated;
 document.getElementById('nextUpdate').textContent  = DATA.meta.nextUpdate;
 document.getElementById('ftWeek').textContent      = DATA.meta.week;
 document.getElementById('ftPeriod').textContent    = DATA.meta.period;
 
-document.getElementById('cntAll').textContent = IG.length;
-document.getElementById('cntIG').textContent  = IG.length;
+buildAccountPills();
+initCharts();
+apply();
 
-// ── KPIs ─────────────────────────────────────────────────────
-document.getElementById('kpiFollowers').textContent    = fmtN(totalF);
-document.getElementById('kpiFollowersSub').textContent = `Instagram · ${IG.length} contas ativas`;
-document.getElementById('kpiContas').textContent       = IG.length;
-document.getElementById('kpiPosts').textContent        = fmtN(totalP);
-document.getElementById('kpiTop').textContent          = topAc.name;
-document.getElementById('kpiTopSub').textContent       = fmtN(topAc.followers) + ' seguidores';
+// ── Account pills ─────────────────────────────────────────────
+function buildAccountPills() {
+  const c = document.getElementById('fgAccount');
+  IG.forEach(a => {
+    const b = document.createElement('button');
+    b.className = 'fpill';
+    b.dataset.group = 'account';
+    b.dataset.val = a.id;
+    b.innerHTML = `<span class="dot" style="background:${a.color}"></span>${a.name}`;
+    c.appendChild(b);
+  });
+}
 
-// ── ACCOUNT CARDS ─────────────────────────────────────────────
+// ── Filter pill handler ───────────────────────────────────────
+document.getElementById('filterPanel').addEventListener('click', e => {
+  const btn = e.target.closest('.fpill[data-group]');
+  if (!btn) return;
+  const g = btn.dataset.group, v = btn.dataset.val;
+
+  document.querySelectorAll(`.fpill[data-group="${g}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  if (g === 'platform') {
+    S.platform = v;
+    const showAcc = v === 'all' || v === 'instagram';
+    document.getElementById('fgAccountRow').style.display = showAcc ? '' : 'none';
+    if (!showAcc) {
+      S.account = 'all';
+      document.querySelectorAll('.fpill[data-group="account"]').forEach(b => b.classList.toggle('active', b.dataset.val==='all'));
+    }
+  } else if (g === 'account') {
+    S.account = v;
+  } else if (g === 'kpi') {
+    S.kpi = v;
+  } else if (g === 'period') {
+    S.period = v;
+    document.getElementById('customDates').classList.toggle('show', v==='custom');
+    if (v !== 'custom') periodDates(v);
+  }
+  apply();
+});
+
+function periodDates(v) {
+  const now = new Date();
+  S.dateFrom = null; S.dateTo = null;
+  if (v==='4w') { S.dateFrom=new Date(now-28*864e5); S.dateTo=now; }
+  if (v==='8w') { S.dateFrom=new Date(now-56*864e5); S.dateTo=now; }
+  if (v==='3m') { S.dateFrom=new Date(now-91*864e5); S.dateTo=now; }
+}
+
+function applyCustomDates() {
+  const f=document.getElementById('dateFrom').value, t=document.getElementById('dateTo').value;
+  if (f) S.dateFrom=new Date(f);
+  if (t) S.dateTo=new Date(t);
+  apply();
+}
+
+function resetFilters() {
+  S.platform='all'; S.account='all'; S.kpi='followers'; S.period='all'; S.dateFrom=null; S.dateTo=null; S.sort='followers';
+  const defaults={platform:'all',account:'all',kpi:'followers',period:'all'};
+  document.querySelectorAll('.fpill[data-group]').forEach(b=>b.classList.toggle('active',b.dataset.val===defaults[b.dataset.group]));
+  document.getElementById('fgAccountRow').style.display='';
+  document.getElementById('customDates').classList.remove('show');
+  document.getElementById('dateFrom').value='';
+  document.getElementById('dateTo').value='';
+  setSortBy('followers');
+  apply();
+}
+
+// ── Sort ─────────────────────────────────────────────────────
+function setSortBy(k) {
+  S.sort=k;
+  ['Followers','Posts','Name'].forEach(n=>{
+    const el=document.getElementById('sb'+n);
+    if (el) el.classList.toggle('active', n.toLowerCase()===k);
+  });
+  apply();
+}
+
+// ── Main render ───────────────────────────────────────────────
+function apply() {
+  const showIG = S.platform==='all' || S.platform==='instagram';
+  const vis = showIG ? IG.filter(a=>S.account==='all'||a.id===S.account) : [];
+
+  document.getElementById('igSection').style.display      = showIG?'':'none';
+  document.getElementById('igAdvSection').style.display   = showIG?'':'none';
+  document.getElementById('chartsSection').style.display  = showIG?'':'none';
+  document.getElementById('topPostsSection').style.display= showIG?'':'none';
+
+  const showOther = S.platform==='all'||['linkedin','youtube','tiktok'].includes(S.platform);
+  document.getElementById('otherSection').style.display   = showOther?'':'none';
+
+  if (showIG) {
+    const sorted=[...vis].sort((a,b)=>{
+      if(S.sort==='name') return a.name.localeCompare(b.name);
+      return (b[S.sort]??-1)-(a[S.sort]??-1);
+    });
+    renderCards(sorted);
+    renderIGAdv(sorted);
+    renderTopPosts();
+  }
+  updateKPIs(vis);
+  updateCharts(vis);
+  if (showOther) renderOther();
+}
+
+// ── KPI row ───────────────────────────────────────────────────
+function updateKPIs(vis) {
+  const cfg = KPI[S.kpi]||KPI.followers;
+  const totalF = vis.reduce((s,a)=>s+(a.followers||0),0);
+  const top = [...vis].sort((a,b)=>b.followers-a.followers)[0];
+
+  let agg = null;
+  const vals = vis.map(a=>S.kpi==='followers'?a.followers:S.kpi==='posts'?a.posts:a[S.kpi]).filter(v=>v!=null);
+  if (vals.length) agg = cfg.agg==='avg' ? vals.reduce((s,v)=>s+v,0)/vals.length : vals.reduce((s,v)=>s+v,0);
+
+  document.getElementById('kpiFollowers').textContent   = fmtN(totalF);
+  document.getElementById('kpiFollowersSub').textContent= `Instagram · ${vis.length} conta${vis.length!==1?'s':''}`;
+  document.getElementById('kpiContas').textContent      = vis.length;
+  document.getElementById('kpiContasSub').textContent   = S.account==='all'?'todas as contas':(acMap[S.account]?.name||'');
+  document.getElementById('kpiHlLabel').textContent     = cfg.label;
+  document.getElementById('kpiHl').innerHTML            = agg==null?'<span class="null">—</span>':cfg.fmt(agg);
+  document.getElementById('kpiHlSub').textContent       = cfg.agg==='avg'?'média entre contas':'total consolidado';
+  document.getElementById('kpiTop').textContent         = top?top.name:'—';
+  document.getElementById('kpiTopSub').textContent      = top?fmtN(top.followers)+' seguidores':'—';
+}
+
+// ── Account cards ─────────────────────────────────────────────
 function renderCards(arr) {
-  document.getElementById('acGrid').innerHTML = arr.map(a => `
-    <div class="ac" data-platform="instagram" data-id="${a.id}">
+  const cfg = KPI[S.kpi]||KPI.followers;
+  const sec = S.kpi==='followers'?KPI.posts:KPI.followers;
+  document.getElementById('acGrid').innerHTML = arr.map(a=>{
+    const pv = S.kpi==='followers'?a.followers:S.kpi==='posts'?a.posts:a[S.kpi];
+    const sv = S.kpi==='followers'?a.posts:a.followers;
+    const pFmt = pv==null?'<span class="null">—</span>':cfg.fmt(pv);
+    return `<div class="ac">
       <div class="ac-bar" style="background:${a.color}"></div>
       <div class="ac-top">
-        <div>
-          <div class="ac-name">${a.name}</div>
-          <div class="ac-user">${a.username}</div>
-        </div>
+        <div><div class="ac-name">${a.name}</div><div class="ac-user">${a.username}</div></div>
         <div class="ptag">📷 IG</div>
       </div>
       <div class="ac-metrics">
-        <div>
-          <div class="ac-metric-val" style="color:${a.color}">${fmt(a.followers)}</div>
-          <div class="ac-metric-lbl">Seguidores</div>
-        </div>
-        <div>
-          <div class="ac-metric-val">${fmt(a.posts)}</div>
-          <div class="ac-metric-lbl">Posts</div>
-        </div>
+        <div><div class="ac-metric-val" style="color:${a.color}">${pFmt}</div><div class="ac-metric-lbl">${cfg.label}</div></div>
+        <div><div class="ac-metric-val">${fmtN(sv)}</div><div class="ac-metric-lbl">${sec.label}</div></div>
       </div>
-      <a class="ac-link" href="${a.url}" target="_blank" rel="noopener">
-        Abrir Instagram ↗
-      </a>
-    </div>
-  `).join('');
+      <a class="ac-link" href="${a.url}" target="_blank" rel="noopener">Abrir Instagram ↗</a>
+    </div>`;
+  }).join('');
 }
 
-let curSort = 'followers';
-function sortBy(key) {
-  curSort = key;
-  ['Followers','Posts','Name'].forEach(k => {
-    const el = document.getElementById('sb'+k);
-    if (el) el.classList.toggle('active', k.toLowerCase() === (key === 'followers' ? 'followers' : key));
+// ── Charts ───────────────────────────────────────────────────
+function initCharts() {
+  donutCh = new Chart(document.getElementById('donutChart'),{
+    type:'doughnut',
+    data:{labels:[],datasets:[{data:[],backgroundColor:[],borderColor:'#16181F',borderWidth:3,hoverBorderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'66%',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${fmtN(ctx.raw)}`}}}}
   });
-  const sorted = [...IG].sort((a,b) =>
-    key === 'name' ? a.name.localeCompare(b.name) : b[key] - a[key]
-  );
-  renderCards(sorted);
-}
-sortBy('followers');
-
-// ── FILTER PILLS ─────────────────────────────────────────────
-document.getElementById('filterBar').addEventListener('click', e => {
-  const btn = e.target.closest('.fpill');
-  if (!btn) return;
-  document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  const f = btn.dataset.filter;
-  const igSec    = document.getElementById('igSection');
-  const igAdv    = document.getElementById('igAdvSection');
-  const otherSec = document.getElementById('otherSection');
-
-  if (f === 'all') {
-    igSec.style.display = igAdv.style.display = otherSec.style.display = '';
-  } else if (f === 'instagram') {
-    igSec.style.display = igAdv.style.display = '';
-    otherSec.style.display = 'none';
-  } else {
-    igSec.style.display = igAdv.style.display = 'none';
-    otherSec.style.display = '';
-    // scroll para tabela de outras redes
-    document.getElementById('otherSection').scrollIntoView({behavior:'smooth', block:'start'});
-  }
-});
-
-// ── DONUT CHART ───────────────────────────────────────────────
-const sortedIG = [...IG].sort((a,b) => b.followers - a.followers);
-
-new Chart(document.getElementById('donutChart'), {
-  type: 'doughnut',
-  data: {
-    labels  : sortedIG.map(a => a.name),
-    datasets: [{
-      data           : sortedIG.map(a => a.followers),
-      backgroundColor: sortedIG.map(a => a.color),
-      borderColor    : '#16181F',
-      borderWidth    : 3,
-      hoverBorderWidth: 0
-    }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false, cutout: '66%',
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: ctx => ` ${fmtN(ctx.raw)} (${((ctx.raw/totalF)*100).toFixed(1)}%)`
-        }
-      }
-    }
-  }
-});
-
-document.getElementById('donutLegend').innerHTML = sortedIG.map(a => `
-  <div class="legend-item">
-    <div class="legend-left">
-      <div class="ldot" style="background:${a.color}"></div>
-      <span>${a.name}</span>
-    </div>
-    <div class="legend-right">
-      <span class="legend-val">${fmt(a.followers)}</span>
-      <span class="legend-pct">${((a.followers/totalF)*100).toFixed(1)}%</span>
-    </div>
-  </div>
-`).join('');
-
-// ── LINE CHART ────────────────────────────────────────────────
-const labels = DATA.history.map(h => h.date);
-const ids    = IG.map(a => a.id);
-const acMap  = Object.fromEntries(IG.map(a => [a.id, a]));
-
-new Chart(document.getElementById('lineChart'), {
-  type: 'line',
-  data: {
-    labels,
-    datasets: ids.map(id => ({
-      label          : acMap[id].name,
-      data           : DATA.history.map(h => h.followers[id] ?? null),
-      borderColor    : acMap[id].color,
-      backgroundColor: acMap[id].color + '20',
-      borderWidth    : 2,
-      pointRadius    : DATA.history.length === 1 ? 5 : 3,
-      pointHoverRadius: 6,
-      tension        : 0.35,
-      fill           : false,
-      spanGaps       : true
-    }))
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: { color: '#5C6070', boxWidth: 9, boxHeight: 9, padding: 14, font: { size: 11 } }
+  lineCh = new Chart(document.getElementById('lineChart'),{
+    type:'line', data:{labels:[],datasets:[]},
+    options:{responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{position:'top',labels:{color:'#5C6070',boxWidth:9,boxHeight:9,padding:14,font:{size:11}}},
+        tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${fmtN(ctx.raw)}`}}
       },
-      tooltip: {
-        callbacks: {
-          label: ctx => ` ${ctx.dataset.label}: ${fmtN(ctx.raw)}`
-        }
-      }
-    },
-    scales: {
-      x: { grid: { color: '#22252E' }, ticks: { color: '#5C6070', font: { size: 11 } } },
-      y: {
-        grid: { color: '#22252E' },
-        ticks: { color: '#5C6070', font: { size: 11 }, callback: v => fmt(v, true) }
+      scales:{
+        x:{grid:{color:'#22252E'},ticks:{color:'#5C6070',font:{size:11}}},
+        y:{grid:{color:'#22252E'},ticks:{color:'#5C6070',font:{size:11},callback:v=>fmt(v)}}
       }
     }
+  });
+}
+
+function updateCharts(vis) {
+  let hist = DATA.history;
+  if (S.dateFrom||S.dateTo) {
+    hist=hist.filter(h=>{
+      const d=parseDate(h.date);
+      if(S.dateFrom&&d<S.dateFrom) return false;
+      if(S.dateTo&&d>S.dateTo) return false;
+      return true;
+    });
   }
-});
 
-// ── IG ADVANCED TABLE ─────────────────────────────────────────
-document.getElementById('igAdvBody').innerHTML = sortedIG.map(a => `
-  <tr>
-    <td>
-      <div class="ac-badge">
-        <span class="ac-bar-sm" style="background:${a.color}"></span>
-        <div>
-          <div style="font-weight:700">${a.name}</div>
-          <div style="font-size:10.5px;color:var(--muted)">${a.username}</div>
+  const total=vis.reduce((s,a)=>s+(a.followers||0),0);
+  donutCh.data.labels=vis.map(a=>a.name);
+  donutCh.data.datasets[0].data=vis.map(a=>a.followers);
+  donutCh.data.datasets[0].backgroundColor=vis.map(a=>a.color);
+  donutCh.update();
+
+  document.getElementById('donutLegend').innerHTML=vis.map(a=>`
+    <div class="legend-item">
+      <div class="legend-left"><div class="ldot" style="background:${a.color}"></div><span>${a.name}</span></div>
+      <div class="legend-right"><span class="legend-val">${fmt(a.followers)}</span><span class="legend-pct">${total?((a.followers/total)*100).toFixed(1):0}%</span></div>
+    </div>`).join('');
+
+  lineCh.data.labels=hist.map(h=>h.date);
+  lineCh.data.datasets=vis.map(a=>({
+    label:a.name, data:hist.map(h=>h.followers[a.id]??null),
+    borderColor:a.color, backgroundColor:a.color+'20', borderWidth:2,
+    pointRadius:hist.length===1?5:3, pointHoverRadius:6, tension:0.35, fill:false, spanGaps:true
+  }));
+  lineCh.update();
+}
+
+// ── IG adv table ─────────────────────────────────────────────
+function renderIGAdv(arr) {
+  document.getElementById('igAdvBody').innerHTML=arr.map(a=>`
+    <tr>
+      <td><div class="ac-badge"><span class="ac-bar-sm" style="background:${a.color}"></span>
+        <div><div style="font-weight:700">${a.name}</div><div style="font-size:10.5px;color:var(--muted)">${a.username}</div></div>
+      </div></td>
+      <td>${fmt(a.new_followers)}</td><td>${fmt(a.reach)}</td><td>${fmt(a.impressions)}</td>
+      <td>${fmtPct(a.engagement)}</td><td>${fmt(a.posts_week)}</td><td>${fmt(a.stories_week)}</td><td>${fmt(a.reels_week)}</td>
+    </tr>`).join('');
+}
+
+// ── Top posts ─────────────────────────────────────────────────
+const TYPE_LBL={VIDEO:'🎬 Reels',CAROUSEL_ALBUM:'🖼 Carrossel',IMAGE:'📷 Foto'};
+function renderTopPosts() {
+  const posts=(DATA.top_posts||[]).filter(p=>S.account==='all'||p.account_id===S.account);
+  document.getElementById('topPostsGrid').innerHTML=posts.map((p,i)=>`
+    <div class="top-post-card">
+      <img class="top-post-thumb" src="${p.thumb}" alt="" loading="lazy" onerror="this.style.background='var(--card-hover)';this.style.minHeight='200px'">
+      <div class="top-post-body">
+        <div class="top-post-header">
+          <div class="top-post-rank">${i+1}</div>
+          <div><div class="top-post-account" style="color:${p.account_color}">${p.account_name}</div></div>
+          <div class="top-post-date">${p.date}</div>
+        </div>
+        <div class="top-post-caption">${p.caption.replace(/\n/g,'<br>')}</div>
+        <div class="top-post-metrics">
+          <div class="top-post-metric">❤️ ${p.likes.toLocaleString('pt-BR')} <span>curtidas</span></div>
+          <div class="top-post-metric">💬 ${p.comments} <span>coment.</span></div>
+          <div class="top-post-type">${TYPE_LBL[p.type]||p.type}</div>
         </div>
       </div>
-    </td>
-    <td>${fmt(a.new_followers)}</td>
-    <td>${fmt(a.reach)}</td>
-    <td>${fmt(a.impressions)}</td>
-    <td>${fmtPct(a.engagement)}</td>
-    <td>${fmt(a.posts_week)}</td>
-    <td>${fmt(a.stories_week)}</td>
-    <td>${fmt(a.reels_week)}</td>
-  </tr>
-`).join('');
+      <a class="top-post-link" href="${p.url}" target="_blank" rel="noopener">Ver no Instagram ↗</a>
+    </div>`).join('');
+}
 
-// ── TOP POSTS ────────────────────────────────────────────────
-const typeLabel = { VIDEO: '🎬 Reels', CAROUSEL_ALBUM: '🖼 Carrossel', IMAGE: '📷 Foto' };
-document.getElementById('topPostsGrid').innerHTML = (DATA.top_posts || []).map((p, i) => `
-  <div class="top-post-card">
-    <img class="top-post-thumb" src="${p.thumb}" alt="Post ${i+1}" loading="lazy"
-         onerror="this.style.background='var(--card-hover)';this.style.minHeight='200px'">
-    <div class="top-post-body">
-      <div class="top-post-header">
-        <div class="top-post-rank">${i+1}</div>
-        <div>
-          <div class="top-post-account" style="color:${p.account_color}">${p.account_name}</div>
-        </div>
-        <div class="top-post-date">${p.date}</div>
-      </div>
-      <div class="top-post-caption">${p.caption.replace(/\n/g,'<br>')}</div>
-      <div class="top-post-metrics">
-        <div class="top-post-metric">❤️ ${p.likes.toLocaleString('pt-BR')} <span>curtidas</span></div>
-        <div class="top-post-metric">💬 ${p.comments} <span>coment.</span></div>
-        <div class="top-post-type">${typeLabel[p.type] || p.type}</div>
-      </div>
-    </div>
-    <a class="top-post-link" href="${p.url}" target="_blank" rel="noopener">Ver no Instagram ↗</a>
-  </div>
-`).join('');
-
-// ── OTHER NETWORKS TABLE ──────────────────────────────────────
-document.getElementById('otherBody').innerHTML = DATA.manual.map(m => `
-  <tr>
-    <td>
-      <div style="display:flex;align-items:center;gap:8px">
-        <div class="picon" style="background:${m.iconBg}">${m.icon}</div>
-        <strong>${m.platform}</strong>
-      </div>
-    </td>
-    <td>${m.name}</td>
-    <td>${fmt(m.followers)}</td>
-    <td>${fmt(m.posts_week)}</td>
-    <td>${fmt(m.reach)}</td>
-    <td>${fmt(m.impressions)}</td>
-    <td>${fmtPct(m.engagement)}</td>
-    <td style="color:var(--muted);font-size:11px">${m.notes}</td>
-  </tr>
-`).join('');
+// ── Other networks ────────────────────────────────────────────
+function renderOther() {
+  const rows = S.platform==='all'?DATA.manual:DATA.manual.filter(m=>m.platform.toLowerCase()===S.platform);
+  document.getElementById('otherBody').innerHTML=rows.map(m=>`
+    <tr>
+      <td><div style="display:flex;align-items:center;gap:8px"><div class="picon" style="background:${m.iconBg}">${m.icon}</div><strong>${m.platform}</strong></div></td>
+      <td>${m.name}</td><td>${fmt(m.followers)}</td><td>${fmt(m.posts_week)}</td>
+      <td>${fmt(m.reach)}</td><td>${fmt(m.impressions)}</td><td>${fmtPct(m.engagement)}</td>
+      <td style="color:var(--muted);font-size:11px">${m.notes}</td>
+    </tr>`).join('');
+}
 </script>
-
 </body>
 </html>
