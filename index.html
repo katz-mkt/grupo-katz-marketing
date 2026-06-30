@@ -4,6 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grupo Katz — Relatório de Marketing</title>
+
+  <!-- ── AUTENTICAÇÃO ── -->
+  <script>
+  (function(){
+    const HASH = '6bf8b142ab4327279de5a956d6321dc44207acbfcbd91e245623d8fc70ba1cdb';
+    const KEY  = 'katz_mkt_auth';
+
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+
+    function showGate() {
+      document.documentElement.style.visibility = 'hidden';
+      document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.style.visibility = '';
+        const gate = document.getElementById('authGate');
+        const body = document.getElementById('appBody');
+        if (!gate || !body) return;
+        gate.style.display = 'flex';
+        body.style.display = 'none';
+
+        document.getElementById('authForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const pw = document.getElementById('authPw').value;
+          const h  = await sha256(pw);
+          if (h === HASH) {
+            sessionStorage.setItem(KEY, '1');
+            gate.style.display = 'none';
+            body.style.display = '';
+          } else {
+            const err = document.getElementById('authErr');
+            err.style.display = 'block';
+            document.getElementById('authPw').value = '';
+            document.getElementById('authPw').focus();
+            setTimeout(() => err.style.display = 'none', 2500);
+          }
+        });
+      });
+    }
+
+    if (sessionStorage.getItem(KEY) !== '1') showGate();
+    else document.addEventListener('DOMContentLoaded', function() {
+      const gate = document.getElementById('authGate');
+      if (gate) gate.style.display = 'none';
+    });
+  })();
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -107,12 +156,21 @@
     .sec-title { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; }
 
     /* ── KPI ROW ── */
-    .kpi-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 28px; }
+    .kpi-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; margin-bottom: 28px; }
     .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; position: relative; overflow: hidden; }
     .kpi::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg,var(--gold) 0%,transparent 70%); }
     .kpi-label { font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; }
     .kpi-val { font-size: 34px; font-weight: 900; color: var(--text); line-height: 1.1; margin: 8px 0 4px; letter-spacing: -.025em; }
     .kpi-sub { font-size: 11.5px; color: var(--muted); }
+    .kpi-delta { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:700; margin-bottom:5px; }
+    .kpi-delta.up   { color: var(--green); }
+    .kpi-delta.down { color: var(--red); }
+    .kpi-delta.flat { color: var(--muted); font-weight:400; }
+    .kpi-delta .dp  { font-size:10.5px; font-weight:400; color:var(--muted); }
+    .ac-delta       { font-size:11.5px; font-weight:700; margin:2px 0 2px; line-height:1.2; }
+    .ac-delta.up    { color: var(--green); }
+    .ac-delta.down  { color: var(--red); }
+    .ac-delta.flat  { color: var(--muted); font-weight:400; }
 
     /* ── ACCOUNT CARDS ── */
     .ac-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(295px,1fr)); gap: 14px; }
@@ -194,6 +252,27 @@
 </head>
 <body>
 
+<!-- ── TELA DE LOGIN ── -->
+<div id="authGate" style="display:none;position:fixed;inset:0;z-index:9999;background:#09090F;align-items:center;justify-content:center">
+  <div style="background:#16181F;border:1px solid #22252E;border-radius:16px;padding:40px 44px;width:100%;max-width:380px;text-align:center">
+    <div style="font-size:22px;font-weight:900;color:#C9A96E;letter-spacing:-.02em;margin-bottom:4px">GRUPO KATZ</div>
+    <div style="font-size:12px;color:#5C6070;margin-bottom:32px">Relatório de Marketing</div>
+    <form id="authForm">
+      <input id="authPw" type="password" placeholder="Senha de acesso"
+        style="width:100%;background:#111218;border:1px solid #22252E;border-radius:8px;color:#E8EAF0;font-size:14px;padding:12px 16px;outline:none;margin-bottom:12px;box-sizing:border-box"
+        onfocus="this.style.borderColor='rgba(201,169,110,.5)'" onblur="this.style.borderColor='#22252E'"
+        autocomplete="current-password" autofocus />
+      <div id="authErr" style="display:none;color:#F87171;font-size:12px;margin-bottom:10px">Senha incorreta</div>
+      <button type="submit"
+        style="width:100%;background:#C9A96E;color:#09090F;font-weight:800;font-size:14px;padding:12px;border:none;border-radius:8px;cursor:pointer;letter-spacing:.01em">
+        Entrar
+      </button>
+    </form>
+  </div>
+</div>
+
+<div id="appBody">
+
 <!-- HEADER -->
 <header>
   <div class="h-left">
@@ -274,28 +353,8 @@
   </div>
 
   <!-- KPIs -->
-  <div class="kpi-row">
-    <div class="kpi">
-      <div class="kpi-label">Total de Seguidores</div>
-      <div class="kpi-val" id="kpiFollowers">—</div>
-      <div class="kpi-sub" id="kpiFollowersSub">—</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Contas Visíveis</div>
-      <div class="kpi-val" id="kpiContas">—</div>
-      <div class="kpi-sub" id="kpiContasSub">—</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label" id="kpiHlLabel">KPI Selecionado</div>
-      <div class="kpi-val" id="kpiHl">—</div>
-      <div class="kpi-sub" id="kpiHlSub">—</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Maior Conta</div>
-      <div class="kpi-val" id="kpiTop" style="font-size:18px;margin-top:12px">—</div>
-      <div class="kpi-sub" id="kpiTopSub">—</div>
-    </div>
-  </div>
+  <div class="sec-title" style="margin-bottom:12px">Métricas Consolidadas</div>
+  <div class="kpi-row" id="kpiRow"></div>
 
   <!-- INSTAGRAM CARDS -->
   <div class="section" id="igSection">
@@ -321,7 +380,7 @@
         <div class="legend-list" id="donutLegend"></div>
       </div>
       <div class="chart-card">
-        <div class="chart-title">Evolução Semanal de Seguidores</div>
+        <div class="chart-title" id="lineChartTitle">Evolução Semanal de Seguidores</div>
         <div style="position:relative;height:280px"><canvas id="lineChart"></canvas></div>
         <div style="font-size:10.5px;color:var(--muted);margin-top:8px">★ Histórico acumulado semana a semana.</div>
       </div>
@@ -350,8 +409,8 @@
   <!-- TOP POSTS -->
   <div class="section" id="topPostsSection">
     <div class="sec-header">
-      <div class="sec-title">🏆 Top Posts da Semana</div>
-      <div style="font-size:11px;color:var(--muted)">por curtidas + comentários</div>
+      <div class="sec-title">🏆 Top Posts</div>
+      <div id="topPostsPeriodLabel" style="font-size:11px;color:var(--muted)">por curtidas + comentários</div>
     </div>
     <div id="topPostsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px"></div>
   </div>
@@ -395,6 +454,40 @@ function fmtN(n) { return n == null ? '—' : n.toLocaleString('pt-BR'); }
 function fmtPct(n) { return n == null ? '<span class="null">—</span>' : n.toFixed(2)+'%'; }
 function parseDate(s) { const [d,m,y]=s.split('/'); return new Date(+y,+m-1,+d); }
 
+function getPrevEntry(daysBack) {
+  const hist = DATA.history || [];
+  if (hist.length < 2) return null;
+  const sorted = [...hist].sort((a,b) => parseDate(a.date) - parseDate(b.date));
+  const latestH = sorted[sorted.length - 1];
+  const latest  = parseDate(latestH.date);
+  const target  = new Date(+latest - daysBack * 864e5);
+  let best = null;
+  for (const h of sorted) {
+    const d = parseDate(h.date);
+    if (d <= target) best = h;
+  }
+  if (best && best.date === latestH.date) return null;
+  return best;
+}
+
+function renderDelta(delta, ref, label) {
+  if (delta == null || ref == null || ref === 0) return '';
+  const pct  = (delta / ref * 100).toFixed(1);
+  const cls  = delta > 0 ? 'up' : delta < 0 ? 'down' : 'flat';
+  const arrow = delta > 0 ? '▲' : delta < 0 ? '▼' : '—';
+  const sign  = delta >= 0 ? '+' : '';
+  return `<div class="kpi-delta ${cls}">${arrow} ${sign}${fmtN(delta)}<span class="dp"> (${sign}${pct}%) ${label}</span></div>`;
+}
+
+function renderDeltaSmall(delta, ref) {
+  if (delta == null || ref == null || ref === 0) return '';
+  const pct  = (delta / ref * 100).toFixed(1);
+  const cls  = delta > 0 ? 'up' : delta < 0 ? 'down' : 'flat';
+  const arrow = delta > 0 ? '▲' : delta < 0 ? '▼' : '—';
+  const sign  = delta >= 0 ? '+' : '';
+  return `<div class="ac-delta ${cls}">${arrow} ${sign}${fmtN(delta)} (${sign}${pct}%)</div>`;
+}
+
 // ── KPI config ───────────────────────────────────────────────
 const KPI = {
   followers:    { label:'Seguidores',        fmt: v=>fmtN(v), agg:'sum' },
@@ -408,8 +501,12 @@ const KPI = {
   reels_week:   { label:'Reels/Semana',       fmt: v=>fmtN(v), agg:'sum' },
 };
 
+// ── Lookup tables (devem ficar ANTES do bootstrap apply()) ────
+const TYPE_LBL   = {VIDEO:'🎬 Reels', CAROUSEL_ALBUM:'🖼 Carrossel', IMAGE:'📷 Foto'};
+const PERIOD_LBL = {all:'todo o histórico','4w':'últimas 4 semanas','8w':'últimas 8 semanas','3m':'últimos 3 meses',custom:'período personalizado'};
+
 // ── State ────────────────────────────────────────────────────
-const S = { platform:'all', account:'all', kpi:'followers', period:'all', dateFrom:null, dateTo:null, sort:'followers' };
+const S = { platform:'all', account:'all', kpi:['followers'], period:'all', dateFrom:null, dateTo:null, sort:'followers' };
 
 // ── Chart instances ──────────────────────────────────────────
 let donutCh, lineCh;
@@ -424,7 +521,8 @@ document.getElementById('ftWeek').textContent      = DATA.meta.week;
 document.getElementById('ftPeriod').textContent    = DATA.meta.period;
 
 buildAccountPills();
-initCharts();
+setupFilters();
+try { initCharts(); } catch(e) { console.warn('Chart.js indisponível:', e.message); }
 apply();
 
 // ── Account pills ─────────────────────────────────────────────
@@ -441,33 +539,39 @@ function buildAccountPills() {
 }
 
 // ── Filter pill handler ───────────────────────────────────────
+function setupFilters() {
 document.getElementById('filterPanel').addEventListener('click', e => {
   const btn = e.target.closest('.fpill[data-group]');
   if (!btn) return;
   const g = btn.dataset.group, v = btn.dataset.val;
 
-  document.querySelectorAll(`.fpill[data-group="${g}"]`).forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  if (g === 'platform') {
-    S.platform = v;
-    const showAcc = v === 'all' || v === 'instagram';
-    document.getElementById('fgAccountRow').style.display = showAcc ? '' : 'none';
-    if (!showAcc) {
-      S.account = 'all';
-      document.querySelectorAll('.fpill[data-group="account"]').forEach(b => b.classList.toggle('active', b.dataset.val==='all'));
+  if (g === 'kpi') {
+    const idx = S.kpi.indexOf(v);
+    if (idx > -1) { if (S.kpi.length > 1) S.kpi.splice(idx, 1); }
+    else { S.kpi.push(v); }
+    document.querySelectorAll('.fpill[data-group="kpi"]').forEach(b => b.classList.toggle('active', S.kpi.includes(b.dataset.val)));
+  } else {
+    document.querySelectorAll(`.fpill[data-group="${g}"]`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (g === 'platform') {
+      S.platform = v;
+      const showAcc = v === 'all' || v === 'instagram';
+      document.getElementById('fgAccountRow').style.display = showAcc ? '' : 'none';
+      if (!showAcc) {
+        S.account = 'all';
+        document.querySelectorAll('.fpill[data-group="account"]').forEach(b => b.classList.toggle('active', b.dataset.val==='all'));
+      }
+    } else if (g === 'account') {
+      S.account = v;
+    } else if (g === 'period') {
+      S.period = v;
+      document.getElementById('customDates').classList.toggle('show', v==='custom');
+      if (v !== 'custom') periodDates(v);
     }
-  } else if (g === 'account') {
-    S.account = v;
-  } else if (g === 'kpi') {
-    S.kpi = v;
-  } else if (g === 'period') {
-    S.period = v;
-    document.getElementById('customDates').classList.toggle('show', v==='custom');
-    if (v !== 'custom') periodDates(v);
   }
   apply();
 });
+}
 
 function periodDates(v) {
   const now = new Date();
@@ -485,9 +589,12 @@ function applyCustomDates() {
 }
 
 function resetFilters() {
-  S.platform='all'; S.account='all'; S.kpi='followers'; S.period='all'; S.dateFrom=null; S.dateTo=null; S.sort='followers';
-  const defaults={platform:'all',account:'all',kpi:'followers',period:'all'};
-  document.querySelectorAll('.fpill[data-group]').forEach(b=>b.classList.toggle('active',b.dataset.val===defaults[b.dataset.group]));
+  S.platform='all'; S.account='all'; S.kpi=['followers']; S.period='all'; S.dateFrom=null; S.dateTo=null; S.sort='followers';
+  const defaults={platform:'all',account:'all',period:'all'};
+  document.querySelectorAll('.fpill[data-group]').forEach(b=>{
+    if (b.dataset.group==='kpi') b.classList.toggle('active', b.dataset.val==='followers');
+    else b.classList.toggle('active', b.dataset.val===defaults[b.dataset.group]);
+  });
   document.getElementById('fgAccountRow').style.display='';
   document.getElementById('customDates').classList.remove('show');
   document.getElementById('dateFrom').value='';
@@ -535,43 +642,141 @@ function apply() {
 
 // ── KPI row ───────────────────────────────────────────────────
 function updateKPIs(vis) {
-  const cfg = KPI[S.kpi]||KPI.followers;
-  const totalF = vis.reduce((s,a)=>s+(a.followers||0),0);
-  const top = [...vis].sort((a,b)=>b.followers-a.followers)[0];
+  if (vis.length === 0) {
+    document.getElementById('kpiRow').innerHTML = `
+      <div class="kpi" style="grid-column:1/-1;text-align:center;padding:32px">
+        <div class="kpi-label" style="margin-bottom:10px">Nenhuma conta Instagram visível</div>
+        <div style="font-size:13px;color:var(--muted)">Selecione <strong style="color:var(--gold)">Todas</strong> ou <strong style="color:var(--gold)">Instagram</strong> no filtro de Rede Social</div>
+      </div>`;
+    return;
+  }
 
-  let agg = null;
-  const vals = vis.map(a=>S.kpi==='followers'?a.followers:S.kpi==='posts'?a.posts:a[S.kpi]).filter(v=>v!=null);
-  if (vals.length) agg = cfg.agg==='avg' ? vals.reduce((s,v)=>s+v,0)/vals.length : vals.reduce((s,v)=>s+v,0);
+  // Período de comparação baseado no filtro selecionado
+  const daysMap  = {'4w':28,'8w':56,'3m':91,'all':730};
+  const daysBack = daysMap[S.period] ?? 28;
+  const prevH    = getPrevEntry(daysBack);
+  const cmpLabel = S.period==='4w' ? 'vs 4 sem atrás'
+                 : S.period==='8w' ? 'vs 8 sem atrás'
+                 : S.period==='3m' ? 'vs 3 meses atrás'
+                 : S.period==='all'&& prevH ? `vs ${prevH.date}`
+                 : 'vs mês anterior';
 
-  document.getElementById('kpiFollowers').textContent   = fmtN(totalF);
-  document.getElementById('kpiFollowersSub').textContent= `Instagram · ${vis.length} conta${vis.length!==1?'s':''}`;
-  document.getElementById('kpiContas').textContent      = vis.length;
-  document.getElementById('kpiContasSub').textContent   = S.account==='all'?'todas as contas':(acMap[S.account]?.name||'');
-  document.getElementById('kpiHlLabel').textContent     = cfg.label;
-  document.getElementById('kpiHl').innerHTML            = agg==null?'<span class="null">—</span>':cfg.fmt(agg);
-  document.getElementById('kpiHlSub').textContent       = cfg.agg==='avg'?'média entre contas':'total consolidado';
-  document.getElementById('kpiTop').textContent         = top?top.name:'—';
-  document.getElementById('kpiTopSub').textContent      = top?fmtN(top.followers)+' seguidores':'—';
+  const totalF     = vis.reduce((s,a) => s + (a.followers||0), 0);
+  const prevTotalF = prevH ? vis.reduce((s,a) => s + (prevH.followers[a.id]||0), 0) : null;
+  const deltaF     = prevTotalF != null ? totalF - prevTotalF : null;
+
+  const top = [...vis].sort((a,b) => b.followers - a.followers)[0];
+
+  let html = `
+    <div class="kpi">
+      <div class="kpi-label">Total de Seguidores</div>
+      <div class="kpi-val">${fmtN(totalF)}</div>
+      ${renderDelta(deltaF, prevTotalF, cmpLabel)}
+      <div class="kpi-sub">Instagram · ${vis.length} conta${vis.length!==1?'s':''}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Contas Visíveis</div>
+      <div class="kpi-val">${vis.length}</div>
+      <div class="kpi-sub">${S.account==='all'?'todas as contas':(acMap[S.account]?.name||'')}</div>
+    </div>`;
+
+  S.kpi.forEach(key => {
+    const cfg  = KPI[key];
+    const vals = vis.map(a => a[key]).filter(v => v != null);
+    let agg = null;
+    if (vals.length) agg = cfg.agg==='avg' ? vals.reduce((s,v)=>s+v,0)/vals.length : vals.reduce((s,v)=>s+v,0);
+
+    // Comparativo: seguidores via histórico; outros KPIs via campos prev_* do data.js
+    let deltaHtml = '';
+    if (key === 'followers' && prevH && agg != null) {
+      const prevAgg = vis.reduce((s,a) => s + (prevH.followers[a.id]||0), 0);
+      deltaHtml = renderDelta(agg - prevAgg, prevAgg, cmpLabel);
+    } else if (key !== 'followers' && agg != null) {
+      const prevKey  = 'prev_' + key;
+      const prevVals = vis.map(a => a[prevKey]).filter(v => v != null);
+      if (prevVals.length) {
+        const prevAgg = cfg.agg === 'avg'
+          ? prevVals.reduce((s,v) => s+v, 0) / prevVals.length
+          : prevVals.reduce((s,v) => s+v, 0);
+        deltaHtml = renderDelta(agg - prevAgg, prevAgg, 'vs sem anterior');
+      }
+    }
+
+    html += `
+    <div class="kpi">
+      <div class="kpi-label">${cfg.label}</div>
+      <div class="kpi-val">${agg==null?'<span class="null">—</span>':cfg.fmt(agg)}</div>
+      ${deltaHtml}
+      <div class="kpi-sub">${cfg.agg==='avg'?'média entre contas':'total consolidado'}</div>
+    </div>`;
+  });
+
+  html += `
+    <div class="kpi">
+      <div class="kpi-label">Maior Conta</div>
+      <div class="kpi-val" style="font-size:18px;margin-top:12px">${top?top.name:'—'}</div>
+      <div class="kpi-sub">${top?fmtN(top.followers)+' seguidores':'—'}</div>
+    </div>`;
+
+  document.getElementById('kpiRow').innerHTML = html;
 }
 
 // ── Account cards ─────────────────────────────────────────────
 function renderCards(arr) {
-  const cfg = KPI[S.kpi]||KPI.followers;
-  const sec = S.kpi==='followers'?KPI.posts:KPI.followers;
+  const primaryKpi = S.kpi[0];
+  const cfg = KPI[primaryKpi]||KPI.followers;
+  const multi = S.kpi.length > 2;
+  const cols  = S.kpi.length > 4 ? 3 : 2;
+  const fsize = S.kpi.length > 4 ? '17px' : S.kpi.length > 2 ? '21px' : '28px';
+
+  const daysMap = {'4w':28,'8w':56,'3m':91,'all':730};
+  const prevH   = getPrevEntry(daysMap[S.period] ?? 28);
+
   document.getElementById('acGrid').innerHTML = arr.map(a=>{
-    const pv = S.kpi==='followers'?a.followers:S.kpi==='posts'?a.posts:a[S.kpi];
-    const sv = S.kpi==='followers'?a.posts:a.followers;
-    const pFmt = pv==null?'<span class="null">—</span>':cfg.fmt(pv);
+    let metrics;
+    if (!multi) {
+      const sec  = primaryKpi==='followers'?KPI.posts:KPI.followers;
+      const pv   = a[primaryKpi];
+      const sv   = primaryKpi==='followers'?a.posts:a.followers;
+      const pFmt = pv==null?'<span class="null">—</span>':cfg.fmt(pv);
+
+      let deltaHtml = '';
+      if (primaryKpi === 'followers' && prevH && pv != null) {
+        const prevVal = prevH.followers[a.id];
+        if (prevVal != null) deltaHtml = renderDeltaSmall(pv - prevVal, prevVal);
+      } else if (primaryKpi !== 'followers' && pv != null) {
+        const prevVal = a['prev_' + primaryKpi];
+        if (prevVal != null) deltaHtml = renderDeltaSmall(pv - prevVal, prevVal);
+      }
+
+      metrics = `<div class="ac-metrics">
+        <div><div class="ac-metric-val" style="color:${a.color}">${pFmt}</div>${deltaHtml}<div class="ac-metric-lbl">${cfg.label}</div></div>
+        <div><div class="ac-metric-val">${fmtN(sv)}</div><div class="ac-metric-lbl">${sec.label}</div></div>
+      </div>`;
+    } else {
+      metrics = `<div class="ac-metrics" style="grid-template-columns:repeat(${cols},1fr);gap:8px">
+        ${S.kpi.map((key,i)=>{
+          const c=KPI[key], v=a[key];
+          const vFmt=v==null?'<span class="null">—</span>':c.fmt(v);
+          let dHtml = '';
+          if (key === 'followers' && prevH && v != null) {
+            const prevVal = prevH.followers[a.id];
+            if (prevVal != null) dHtml = renderDeltaSmall(v - prevVal, prevVal);
+          } else if (key !== 'followers' && v != null) {
+            const prevVal = a['prev_' + key];
+            if (prevVal != null) dHtml = renderDeltaSmall(v - prevVal, prevVal);
+          }
+          return `<div><div class="ac-metric-val" style="font-size:${fsize};color:${i===0?a.color:'var(--text)'}">${vFmt}</div>${dHtml}<div class="ac-metric-lbl">${c.label}</div></div>`;
+        }).join('')}
+      </div>`;
+    }
     return `<div class="ac">
       <div class="ac-bar" style="background:${a.color}"></div>
       <div class="ac-top">
         <div><div class="ac-name">${a.name}</div><div class="ac-user">${a.username}</div></div>
         <div class="ptag">📷 IG</div>
       </div>
-      <div class="ac-metrics">
-        <div><div class="ac-metric-val" style="color:${a.color}">${pFmt}</div><div class="ac-metric-lbl">${cfg.label}</div></div>
-        <div><div class="ac-metric-val">${fmtN(sv)}</div><div class="ac-metric-lbl">${sec.label}</div></div>
-      </div>
+      ${metrics}
       <a class="ac-link" href="${a.url}" target="_blank" rel="noopener">Abrir Instagram ↗</a>
     </div>`;
   }).join('');
@@ -602,6 +807,7 @@ function initCharts() {
 }
 
 function updateCharts(vis) {
+  if (!donutCh || !lineCh) return;
   let hist = DATA.history;
   if (S.dateFrom||S.dateTo) {
     hist=hist.filter(h=>{
@@ -611,6 +817,9 @@ function updateCharts(vis) {
       return true;
     });
   }
+
+  const el=document.getElementById('lineChartTitle');
+  if(el) el.textContent=`Evolução de Seguidores · ${PERIOD_LBL[S.period]||'período personalizado'} (${hist.length} ${hist.length===1?'registro':'registros'})`;
 
   const total=vis.reduce((s,a)=>s+(a.followers||0),0);
   donutCh.data.labels=vis.map(a=>a.name);
@@ -634,21 +843,50 @@ function updateCharts(vis) {
 }
 
 // ── IG adv table ─────────────────────────────────────────────
+function cellDelta(cur, prev, isAvg) {
+  if (cur == null) return '<span class="null">—</span>';
+  let base = isAvg ? fmtPct(cur) : fmt(cur);
+  if (prev == null) return base;
+  const delta = cur - prev;
+  const pct   = prev !== 0 ? (delta / prev * 100).toFixed(1) : null;
+  const sign  = delta >= 0 ? '+' : '';
+  const color = delta > 0 ? 'var(--green)' : delta < 0 ? 'var(--red)' : 'var(--muted)';
+  const arrow = delta > 0 ? '▲' : delta < 0 ? '▼' : '—';
+  const pctStr = isAvg
+    ? `${sign}${delta.toFixed(2)}pp`
+    : (pct != null ? `${sign}${pct}%` : `${sign}${fmtN(delta)}`);
+  return `${base}<br><span style="font-size:10.5px;color:${color};font-weight:700">${arrow} ${pctStr}</span>`;
+}
+
 function renderIGAdv(arr) {
   document.getElementById('igAdvBody').innerHTML=arr.map(a=>`
     <tr>
       <td><div class="ac-badge"><span class="ac-bar-sm" style="background:${a.color}"></span>
         <div><div style="font-weight:700">${a.name}</div><div style="font-size:10.5px;color:var(--muted)">${a.username}</div></div>
       </div></td>
-      <td>${fmt(a.new_followers)}</td><td>${fmt(a.reach)}</td><td>${fmt(a.impressions)}</td>
-      <td>${fmtPct(a.engagement)}</td><td>${fmt(a.posts_week)}</td><td>${fmt(a.stories_week)}</td><td>${fmt(a.reels_week)}</td>
+      <td>${cellDelta(a.new_followers, a.prev_new_followers, false)}</td>
+      <td>${cellDelta(a.reach,         a.prev_reach,         false)}</td>
+      <td>${cellDelta(a.impressions,   a.prev_impressions,   false)}</td>
+      <td>${cellDelta(a.engagement,    a.prev_engagement,    true)}</td>
+      <td>${cellDelta(a.posts_week,    a.prev_posts_week,    false)}</td>
+      <td>${cellDelta(a.stories_week,  a.prev_stories_week,  false)}</td>
+      <td>${cellDelta(a.reels_week,    a.prev_reels_week,    false)}</td>
     </tr>`).join('');
 }
 
 // ── Top posts ─────────────────────────────────────────────────
-const TYPE_LBL={VIDEO:'🎬 Reels',CAROUSEL_ALBUM:'🖼 Carrossel',IMAGE:'📷 Foto'};
 function renderTopPosts() {
-  const posts=(DATA.top_posts||[]).filter(p=>S.account==='all'||p.account_id===S.account);
+  let posts=(DATA.top_posts||[]).filter(p=>S.account==='all'||p.account_id===S.account);
+  if (S.dateFrom||S.dateTo) {
+    posts=posts.filter(p=>{
+      const d=parseDate(p.date);
+      if(S.dateFrom&&d<S.dateFrom) return false;
+      if(S.dateTo&&d>S.dateTo) return false;
+      return true;
+    });
+  }
+  const lbl=document.getElementById('topPostsPeriodLabel');
+  if(lbl) lbl.textContent=S.period==='all'?'por curtidas + comentários':`${PERIOD_LBL[S.period]||'período selecionado'} · por curtidas`;
   document.getElementById('topPostsGrid').innerHTML=posts.map((p,i)=>`
     <div class="top-post-card">
       <img class="top-post-thumb" src="${p.thumb}" alt="" loading="lazy" onerror="this.style.background='var(--card-hover)';this.style.minHeight='200px'">
@@ -666,7 +904,7 @@ function renderTopPosts() {
         </div>
       </div>
       <a class="top-post-link" href="${p.url}" target="_blank" rel="noopener">Ver no Instagram ↗</a>
-    </div>`).join('');
+    </div>`).join('') || '<p style="color:var(--muted);font-size:12px;padding:16px 0">Nenhum post no período selecionado.</p>';
 }
 
 // ── Other networks ────────────────────────────────────────────
@@ -681,5 +919,7 @@ function renderOther() {
     </tr>`).join('');
 }
 </script>
+
+</div><!-- /#appBody -->
 </body>
 </html>

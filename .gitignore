@@ -1,0 +1,14 @@
+﻿# Dados brutos de importação (não precisam estar no repo)
+Assets/INsights/
+
+# Backups gerados pelo importar-meta.js
+data.js.bak
+
+# Scripts de manutenção (não são parte do site publicado)
+historico.js
+importar-meta.js
+update.js
+
+# Arquivos de sistema
+Thumbs.db
+.DS_Store

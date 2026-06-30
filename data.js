@@ -26,7 +26,15 @@ const DATA = {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
+      reels_week    : null,
+      // Semana anterior — preencher ao atualizar os campos acima
+      prev_new_followers : null,
+      prev_reach         : null,
+      prev_impressions   : null,
+      prev_engagement    : null,
+      prev_posts_week    : null,
+      prev_stories_week  : null,
+      prev_reels_week    : null
     },
     {
       id       : "hauz",
@@ -42,7 +50,14 @@ const DATA = {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
+      reels_week    : null,
+      prev_new_followers : null,
+      prev_reach         : null,
+      prev_impressions   : null,
+      prev_engagement    : null,
+      prev_posts_week    : null,
+      prev_stories_week  : null,
+      prev_reels_week    : null
     },
     {
       id       : "marianilza",
@@ -58,7 +73,14 @@ const DATA = {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
+      reels_week    : null,
+      prev_new_followers : null,
+      prev_reach         : null,
+      prev_impressions   : null,
+      prev_engagement    : null,
+      prev_posts_week    : null,
+      prev_stories_week  : null,
+      prev_reels_week    : null
     },
     {
       id       : "pierjoao",
@@ -74,7 +96,14 @@ const DATA = {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
+      reels_week    : null,
+      prev_new_followers : null,
+      prev_reach         : null,
+      prev_impressions   : null,
+      prev_engagement    : null,
+      prev_posts_week    : null,
+      prev_stories_week  : null,
+      prev_reels_week    : null
     },
     {
       id       : "bahiakatz",
@@ -90,7 +119,14 @@ const DATA = {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
+      reels_week    : null,
+      prev_new_followers : null,
+      prev_reach         : null,
+      prev_impressions   : null,
+      prev_engagement    : null,
+      prev_posts_week    : null,
+      prev_stories_week  : null,
+      prev_reels_week    : null
     },
     {
       id       : "casaararipe",
@@ -106,7 +142,14 @@ const DATA = {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
+      reels_week    : null,
+      prev_new_followers : null,
+      prev_reach         : null,
+      prev_impressions   : null,
+      prev_engagement    : null,
+      prev_posts_week    : null,
+      prev_stories_week  : null,
+      prev_reels_week    : null
     }
   ],
 
