@@ -84,6 +84,13 @@ const MANUAL_NETWORKS = [
 // ── Helpers ────────────────────────────────────────────────────────────────
 function pad(n) { return String(n).padStart(2, '0'); }
 
+function loadExistingData(dataPath) {
+  try {
+    const src = fs.readFileSync(dataPath, 'utf8');
+    return new Function(src + '\nreturn DATA;')();
+  } catch(e) { return null; }
+}
+
 function getWeekNumber(d) {
   const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
   const day  = date.getUTCDay() || 7;
@@ -168,9 +175,13 @@ async function main() {
     }
   }
 
+  // ── Ler dados existentes (preserva top_posts e dados manuais) ──
+  const dataPath   = path.join(__dirname, 'data.js');
+  const existing   = loadExistingData(dataPath);
+  const top_posts  = existing?.top_posts  || [];
+
   // ── Build history ──
-  const dataPath = path.join(__dirname, 'data.js');
-  let history    = readCurrentHistory(dataPath);
+  let history = readCurrentHistory(dataPath);
 
   const snapshot = { date: dateStr, week };
   snapshot.followers = {};
@@ -179,7 +190,10 @@ async function main() {
   if (history.length > 52) history = history.slice(-52); // keep 1 year
 
   // ── Render data.js ──
-  const igJson = igData.map(a => `    {
+  const n = v => v == null ? 'null' : v;
+  const igJson = igData.map(a => {
+    const ex = existing?.instagram?.find(e => e.id === a.id) || {};
+    return `    {
       id       : "${a.id}",
       name     : "${a.name}",
       username : "${a.username}",
@@ -193,8 +207,17 @@ async function main() {
       engagement    : null,
       posts_week    : null,
       stories_week  : null,
-      reels_week    : null
-    }`).join(',\n');
+      reels_week    : null,
+      // Semana anterior (rotacionado automaticamente pelo update.js)
+      prev_new_followers : ${n(ex.new_followers)},
+      prev_reach         : ${n(ex.reach)},
+      prev_impressions   : ${n(ex.impressions)},
+      prev_engagement    : ${n(ex.engagement)},
+      prev_posts_week    : ${n(ex.posts_week)},
+      prev_stories_week  : ${n(ex.stories_week)},
+      prev_reels_week    : ${n(ex.reels_week)}
+    }`;
+  }).join(',\n');
 
   const manualJson = MANUAL_NETWORKS.map(m => `    {
       platform   : "${m.platform}",
@@ -212,6 +235,9 @@ async function main() {
 
   const historyJson = JSON.stringify(history, null, 4)
     .split('\n').map((l, i) => i === 0 ? l : '  ' + l).join('\n');
+
+  const topPostsJson = JSON.stringify(top_posts, null, 2)
+    .split('\n').map((l, i) => i === 0 ? '  ' + l : '  ' + l).join('\n');
 
   const output = `// DADOS DO DASHBOARD — gerado automaticamente em ${dateStr}
 // followers e posts: via API Instagram (update.js)
@@ -234,6 +260,10 @@ ${igJson}
 ${manualJson}
   ],
 
+  // Top posts da semana — atualizar manualmente ou via script de posts
+  top_posts: ${topPostsJson},
+
+  // Histórico semanal — update.js adiciona 1 entrada por semana automaticamente
   history: ${historyJson}
 };
 `;

@@ -4,10 +4,10 @@ Assets/INsights/
 # Backups gerados pelo importar-meta.js
 data.js.bak
 
-# Scripts de manutenção (não são parte do site publicado)
+# Scripts de manutenção locais
 historico.js
 importar-meta.js
-update.js
+auto-update.ps1
 
 # Arquivos de sistema
 Thumbs.db
