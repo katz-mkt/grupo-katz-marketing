@@ -1,14 +1,14 @@
-// DADOS DO DASHBOARD — gerado automaticamente toda terça-feira
-// followers e posts: atualizados via API do Instagram (update.js)
+// DADOS DO DASHBOARD — gerado automaticamente em 06/07/2026
+// followers e posts: via API Instagram (update.js)
 // reach, impressions, engagement, posts_week, stories_week, reels_week:
-//   inserir manualmente via Meta Business Suite após cada semana
+//   inserir manualmente via Meta Business Suite
 
 const DATA = {
   meta: {
-    lastUpdated : "17/06/2026",
-    nextUpdate  : "24/06/2026",
-    week        : 25,
-    period      : "11/06 – 17/06/2026"
+    lastUpdated : "06/07/2026",
+    nextUpdate  : "13/07/2026",
+    week        : 28,
+    period      : "06/07 – 12/07/2026"
   },
 
   instagram: [
@@ -18,7 +18,7 @@ const DATA = {
       username : "@katz.life.style",
       url      : "https://instagram.com/katz.life.style",
       color    : "#C9A96E",
-      followers: 46246,
+      followers: 46501,
       posts    : 1326,
       new_followers : null,
       reach         : null,
@@ -27,7 +27,7 @@ const DATA = {
       posts_week    : null,
       stories_week  : null,
       reels_week    : null,
-      // Semana anterior — preencher ao atualizar os campos acima
+      // Semana anterior (rotacionado automaticamente pelo update.js)
       prev_new_followers : null,
       prev_reach         : null,
       prev_impressions   : null,
@@ -42,8 +42,8 @@ const DATA = {
       username : "@hauzconstrucoes",
       url      : "https://instagram.com/hauzconstrucoes",
       color    : "#2E86AB",
-      followers: 16088,
-      posts    : 610,
+      followers: 16125,
+      posts    : 612,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -51,6 +51,7 @@ const DATA = {
       posts_week    : null,
       stories_week  : null,
       reels_week    : null,
+      // Semana anterior (rotacionado automaticamente pelo update.js)
       prev_new_followers : null,
       prev_reach         : null,
       prev_impressions   : null,
@@ -65,8 +66,8 @@ const DATA = {
       username : "@restaurantemarianilza",
       url      : "https://instagram.com/restaurantemarianilza",
       color    : "#E07A5F",
-      followers: 9836,
-      posts    : 312,
+      followers: 9850,
+      posts    : 313,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -74,6 +75,7 @@ const DATA = {
       posts_week    : null,
       stories_week  : null,
       reels_week    : null,
+      // Semana anterior (rotacionado automaticamente pelo update.js)
       prev_new_followers : null,
       prev_reach         : null,
       prev_impressions   : null,
@@ -88,7 +90,7 @@ const DATA = {
       username : "@pierjoaodetiba",
       url      : "https://instagram.com/pierjoaodetiba",
       color    : "#9B5DE5",
-      followers: 7985,
+      followers: 7984,
       posts    : 305,
       new_followers : null,
       reach         : null,
@@ -97,6 +99,7 @@ const DATA = {
       posts_week    : null,
       stories_week  : null,
       reels_week    : null,
+      // Semana anterior (rotacionado automaticamente pelo update.js)
       prev_new_followers : null,
       prev_reach         : null,
       prev_impressions   : null,
@@ -111,7 +114,7 @@ const DATA = {
       username : "@bahiakatz",
       url      : "https://instagram.com/bahiakatz",
       color    : "#00B4D8",
-      followers: 5901,
+      followers: 5897,
       posts    : 881,
       new_followers : null,
       reach         : null,
@@ -120,6 +123,7 @@ const DATA = {
       posts_week    : null,
       stories_week  : null,
       reels_week    : null,
+      // Semana anterior (rotacionado automaticamente pelo update.js)
       prev_new_followers : null,
       prev_reach         : null,
       prev_impressions   : null,
@@ -134,7 +138,7 @@ const DATA = {
       username : "@casadoararipe",
       url      : "https://instagram.com/casadoararipe",
       color    : "#52B788",
-      followers: 55,
+      followers: 54,
       posts    : 13,
       new_followers : null,
       reach         : null,
@@ -143,6 +147,7 @@ const DATA = {
       posts_week    : null,
       stories_week  : null,
       reels_week    : null,
+      // Semana anterior (rotacionado automaticamente pelo update.js)
       prev_new_followers : null,
       prev_reach         : null,
       prev_impressions   : null,
@@ -195,57 +200,62 @@ const DATA = {
     }
   ],
 
-  // Top posts da semana — update.js atualiza automaticamente
-  top_posts: [
+  // Top posts da semana — atualizar manualmente ou via script de posts
+  top_posts:   [
     {
-      account_id   : "katz",
-      account_name : "Katz Empreendimentos",
-      account_color: "#C9A96E",
-      post_id      : "18106166284968694",
-      type         : "VIDEO",
-      date         : "17/06/2026",
-      likes        : 36,
-      comments     : 1,
-      thumb        : "thumbs/top_katz_1.jpg",
-      caption      : "Por que Acuruí?\nLocalizado na Estrada Real, o Haras do Passo está a 50 min de BH, mas totalmente imerso na natureza.",
-      url          : "https://www.instagram.com/reel/DLIgzYFOpZT/"
+      "account_id": "katz",
+      "account_name": "Katz Empreendimentos",
+      "account_color": "#C9A96E",
+      "post_id": "18106166284968694",
+      "type": "VIDEO",
+      "date": "17/06/2026",
+      "likes": 36,
+      "comments": 1,
+      "thumb": "thumbs/top_katz_1.jpg",
+      "caption": "Por que Acuruí?\nLocalizado na Estrada Real, o Haras do Passo está a 50 min de BH, mas totalmente imerso na natureza.",
+      "url": "https://www.instagram.com/reel/DLIgzYFOpZT/"
     },
     {
-      account_id   : "hauz",
-      account_name : "Hauz Construções",
-      account_color: "#2E86AB",
-      post_id      : "18012302648715681",
-      type         : "VIDEO",
-      date         : "17/06/2026",
-      likes        : 28,
-      comments     : 1,
-      thumb        : "thumbs/top_hauz_2.jpg",
-      caption      : "Implantada com rigor geométrico às margens do lago, a PCN evidencia o domínio técnico na articulação de volumes ortogonais.",
-      url          : "https://www.instagram.com/reel/DLJpQ5gOFIh/"
+      "account_id": "hauz",
+      "account_name": "Hauz Construções",
+      "account_color": "#2E86AB",
+      "post_id": "18012302648715681",
+      "type": "VIDEO",
+      "date": "17/06/2026",
+      "likes": 28,
+      "comments": 1,
+      "thumb": "thumbs/top_hauz_2.jpg",
+      "caption": "Implantada com rigor geométrico às margens do lago, a PCN evidencia o domínio técnico na articulação de volumes ortogonais.",
+      "url": "https://www.instagram.com/reel/DLJpQ5gOFIh/"
     },
     {
-      account_id   : "hauz",
-      account_name : "Hauz Construções",
-      account_color: "#2E86AB",
-      post_id      : "17963039988121082",
-      type         : "CAROUSEL_ALBUM",
-      date         : "15/06/2026",
-      likes        : 26,
-      comments     : 0,
-      thumb        : "thumbs/top_hauz_3.jpg",
-      caption      : "REN | MINAS GERAIS\nProjeto Arquitetônico: Jacobsen Arquitetura\nImagens: Fran Parente\nConstrução: Hauz Construções",
-      url          : "https://www.instagram.com/p/DLFHXlzOHOC/"
+      "account_id": "hauz",
+      "account_name": "Hauz Construções",
+      "account_color": "#2E86AB",
+      "post_id": "17963039988121082",
+      "type": "CAROUSEL_ALBUM",
+      "date": "15/06/2026",
+      "likes": 26,
+      "comments": 0,
+      "thumb": "thumbs/top_hauz_3.jpg",
+      "caption": "REN | MINAS GERAIS\nProjeto Arquitetônico: Jacobsen Arquitetura\nImagens: Fran Parente\nConstrução: Hauz Construções",
+      "url": "https://www.instagram.com/p/DLFHXlzOHOC/"
     }
   ],
 
   // Histórico semanal — update.js adiciona 1 entrada por semana automaticamente
   history: [
-    {
-      date: "17/06/2026", week: 25,
-      followers: {
-        katz: 46246, hauz: 16088, marianilza: 9836,
-        pierjoao: 7985, bahiakatz: 5901, casaararipe: 55
+      {
+          "date": "06/07/2026",
+          "week": 28,
+          "followers": {
+              "katz": 46501,
+              "hauz": 16125,
+              "marianilza": 9850,
+              "pierjoao": 7984,
+              "bahiakatz": 5897,
+              "casaararipe": 54
+          }
       }
-    }
   ]
 };
