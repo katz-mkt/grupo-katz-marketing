@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo Katz — Relatório Detalhado</title>
+
+  <!-- ── AUTENTICAÇÃO (mesma senha do dashboard) ── -->
+  <script>
+  (function(){
+    const HASH = '6bf8b142ab4327279de5a956d6321dc44207acbfcbd91e245623d8fc70ba1cdb';
+    const KEY  = 'katz_mkt_auth';
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    function showGate() {
+      document.documentElement.style.visibility = 'hidden';
+      document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.style.visibility = '';
+        const gate = document.getElementById('authGate');
+        const body = document.getElementById('appBody');
+        if (!gate || !body) return;
+        gate.style.display = 'flex';
+        body.style.display = 'none';
+        document.getElementById('authForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const h = await sha256(document.getElementById('authPw').value);
+          if (h === HASH) {
+            sessionStorage.setItem(KEY, '1');
+            gate.style.display = 'none'; body.style.display = '';
+            window.dispatchEvent(new Event('resize'));
+          } else {
+            const err = document.getElementById('authErr');
+            err.style.display = 'block';
+            document.getElementById('authPw').value = '';
+            setTimeout(() => err.style.display = 'none', 2500);
+          }
+        });
+      });
+    }
+    if (sessionStorage.getItem(KEY) !== '1') showGate();
+    else document.addEventListener('DOMContentLoaded', function() {
+      const gate = document.getElementById('authGate');
+      if (gate) gate.style.display = 'none';
+    });
+  })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#09090F; --surface:#111218; --card:#16181F; --card-hover:#1C1F2A;
+      --border:#22252E; --border-hi:#2E3140; --text:#E8EAF0; --dim:#9CA3B0;
+      --muted:#5C6070; --gold:#C9A96E; --gold-light:#E5C88E; --gold-dim:rgba(201,169,110,.10);
+      --green:#4ADE80; --red:#F87171; --radius:12px;
+    }
+    html { font-size: 14px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; line-height: 1.5; min-height: 100vh; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 3px; }
+
+    /* auth gate */
+    #authGate { display:none; position:fixed; inset:0; z-index:999; background:var(--bg); align-items:center; justify-content:center; }
+    .gate-box { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:40px; width:340px; text-align:center; }
+    .gate-box h1 { font-size:16px; color:var(--gold); margin-bottom:6px; }
+    .gate-box p { font-size:12px; color:var(--muted); margin-bottom:20px; }
+    .gate-box input { width:100%; background:var(--surface); border:1px solid var(--border); border-radius:8px; color:var(--text); padding:10px 14px; font-size:14px; margin-bottom:12px; outline:none; }
+    .gate-box input:focus { border-color:var(--gold); }
+    .gate-box button { width:100%; background:var(--gold); color:#0B0B10; font-weight:700; border:none; border-radius:8px; padding:10px; font-size:13px; cursor:pointer; }
+    #authErr { display:none; color:var(--red); font-size:12px; margin-top:10px; }
+
+    header {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(17,18,24,.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); height: 60px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 28px;
+    }
+    .h-left { display:flex; align-items:center; gap:14px; }
+    .h-logo { display:flex; align-items:center; gap:8px; font-size:15px; font-weight:800; color:var(--gold); letter-spacing:-.02em; }
+    .h-logo-dot { width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold); }
+    .h-divider { color:var(--border-hi); font-size:18px; }
+    .h-sub { font-size:13px; color:var(--muted); }
+    .h-right { display:flex; align-items:center; gap:10px; }
+    .badge { display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--dim); background:var(--card); border:1px solid var(--border); padding:5px 12px; border-radius:20px; }
+    .badge.gold { color:var(--gold-light); border-color:rgba(201,169,110,.3); background:var(--gold-dim); }
+    .badge a { color:inherit; text-decoration:none; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 28px 28px 72px; }
+
+    /* account selector */
+    .acc-pills { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px; }
+    .apill { display:flex; align-items:center; gap:8px; padding:8px 16px; border-radius:24px; border:1px solid var(--border); background:var(--card); color:var(--dim); font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; user-select:none; }
+    .apill:hover { border-color:var(--border-hi); background:var(--card-hover); }
+    .apill.active { background:var(--gold-dim); border-color:rgba(201,169,110,.55); color:var(--gold-light); }
+    .apill .dot { width:8px; height:8px; border-radius:50%; }
+
+    /* section card */
+    .sec { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px 24px; margin-bottom:20px; }
+    .sec-title { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:800; color:var(--text); text-transform:uppercase; letter-spacing:.06em; margin-bottom:18px; }
+    .sec-title .ig { width:22px; height:22px; border-radius:6px; background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF); display:flex; align-items:center; justify-content:center; font-size:12px; }
+    .sec-note { font-size:11.5px; color:var(--muted); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:8px 12px; margin-bottom:16px; }
+
+    /* KPI grid */
+    .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px; }
+    .kpi { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+    .kpi .lbl { font-size:11px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+    .kpi .val { font-size:24px; font-weight:800; letter-spacing:-.02em; }
+    .kpi .gr { display:inline-flex; align-items:center; gap:3px; font-size:11px; font-weight:700; border-radius:12px; padding:2px 8px; margin-top:6px; }
+    .gr.up { color:var(--green); background:rgba(74,222,128,.1); }
+    .gr.down { color:var(--red); background:rgba(248,113,113,.1); }
+    .gr.flat { color:var(--muted); background:var(--card); }
+
+    /* funnel */
+    .funnel { display:flex; flex-direction:column; gap:10px; align-items:center; }
+    .fstep { text-align:center; width:100%; }
+    .fbar { height:38px; border-radius:8px; margin:0 auto; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#0B0B10; }
+    .fmeta { font-size:11px; color:var(--muted); margin-top:3px; }
+    .fgrow { font-size:11px; font-weight:700; }
+
+    /* charts */
+    .chart-wrap { position:relative; height:280px; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    @media(max-width:860px){ .grid-2{grid-template-columns:1fr;} }
+
+    /* tables */
+    table { width:100%; border-collapse:collapse; font-size:12.5px; }
+    th { text-align:left; color:var(--muted); font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; font-weight:700; padding:8px 10px; border-bottom:1px solid var(--border); }
+    td { padding:10px; border-bottom:1px solid var(--border); vertical-align:middle; }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:var(--card-hover); }
+    td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+    .post-cell { display:flex; align-items:center; gap:10px; max-width:340px; }
+    .post-thumb { width:44px; height:44px; border-radius:8px; object-fit:cover; background:var(--surface); flex-shrink:0; }
+    .post-cap { font-size:12px; color:var(--dim); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+    .post-cap a { color:var(--gold-light); text-decoration:none; font-size:11px; }
+    .heat { border-radius:6px; padding:4px 8px; display:inline-block; min-width:52px; text-align:right; }
+
+    .empty { text-align:center; color:var(--muted); font-size:12.5px; padding:34px 0; }
+    .empty .ico { font-size:22px; margin-bottom:8px; opacity:.5; }
+
+    .summary-txt { font-size:13.5px; color:var(--dim); line-height:1.8; }
+    .summary-txt b { color:var(--text); }
+
+    footer { text-align:center; color:var(--muted); font-size:11px; padding:20px 0 40px; }
+  </style>
+</head>
+<body>
+
+  <!-- gate -->
+  <div id="authGate">
+    <div class="gate-box">
+      <h1>◆ Grupo Katz</h1>
+      <p>Relatório Detalhado — acesso restrito</p>
+      <form id="authForm">
+        <input type="password" id="authPw" placeholder="Senha" autofocus />
+        <button type="submit">Entrar</button>
+      </form>
+      <div id="authErr">Senha incorreta</div>
+    </div>
+  </div>
+
+  <div id="appBody">
+    <header>
+      <div class="h-left">
+        <div class="h-logo"><div class="h-logo-dot"></div>GRUPO KATZ</div>
+        <span class="h-divider">/</span>
+        <span class="h-sub">Relatório Detalhado de Instagram</span>
+      </div>
+      <div class="h-right">
+        <span class="badge"><a href="index.html">← Dashboard</a></span>
+        <span class="badge gold" id="periodBadge">—</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="acc-pills" id="accPills"></div>
+      <div id="reportRoot"></div>
+    </main>
+
+    <footer>Grupo Katz Marketing — gerado automaticamente via API do Instagram · <span id="genAt"></span></footer>
+  </div>
+
+  <script src="report-data.js"></script>
+  <script>
+  (function(){
+    const $ = s => document.querySelector(s);
+    const fmt = v => v == null ? '—' : v.toLocaleString('pt-BR');
+    const pct = v => v == null ? '—' : v.toLocaleString('pt-BR', {maximumFractionDigits:2}) + '%';
+    let charts = [];
+
+    const WD = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+    Chart.defaults.color = '#9CA3B0';
+    Chart.defaults.borderColor = '#22252E';
+    Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif";
+
+    function grBadge(g, invert) {
+      if (g == null) return '<span class="gr flat">—</span>';
+      const up = g >= 0;
+      const cls = (invert ? !up : up) ? 'up' : 'down';
+      return `<span class="gr ${cls}">${up?'↑':'↓'} ${Math.abs(g).toLocaleString('pt-BR',{maximumFractionDigits:2})}%</span>`;
+    }
+
+    function empty(msg) {
+      return `<div class="empty"><div class="ico">◌</div>${msg || 'Não há dados para o período'}</div>`;
+    }
+
+    function kpi(lbl, val, g, isPct) {
+      return `<div class="kpi"><div class="lbl">${lbl}</div><div class="val">${isPct?pct(val):fmt(val)}</div>${grBadge(g)}</div>`;
+    }
+
+    function heatCell(v, max, suffix) {
+      if (v == null) return '<td class="num">—</td>';
+      const a = max ? Math.min(v / max, 1) : 0;
+      return `<td class="num"><span class="heat" style="background:rgba(201,169,110,${(a*0.35).toFixed(3)})">${fmt(v)}${suffix||''}</span></td>`;
+    }
+
+    function postTable(rows, cols) {
+      if (!rows || !rows.length) return empty();
+      const maxes = {};
+      cols.forEach(c => { maxes[c.key] = Math.max(...rows.map(r => r[c.key] || 0)); });
+      return `<div style="overflow-x:auto"><table>
+        <thead><tr><th>Publicação</th>${cols.map(c=>`<th class="num">${c.lbl}</th>`).join('')}</tr></thead>
+        <tbody>${rows.map(r=>`<tr>
+          <td><div class="post-cell">${r.thumb?`<img class="post-thumb" src="${r.thumb}" loading="lazy" onerror="this.style.display='none'"/>`:''}
+            <div class="post-cap">${r.caption || '(sem legenda)'}<br/><a href="${r.url}" target="_blank">Ver post ↗</a></div></div></td>
+          ${cols.map(c=>heatCell(r[c.key], maxes[c.key], c.suffix)).join('')}
+        </tr>`).join('')}</tbody></table></div>`;
+    }
+
+    function simpleTable(rows, col1, col2) {
+      if (!rows || !rows.length) return empty();
+      const max = Math.max(...rows.map(r => r.value));
+      return `<table><thead><tr><th>${col1}</th><th class="num">${col2}</th></tr></thead>
+        <tbody>${rows.map(r=>`<tr><td>${r.tag ? '#'+r.tag : r.label}</td>${heatCell(r.value, max)}</tr>`).join('')}</tbody></table>`;
+    }
+
+    function render(acc) {
+      charts.forEach(c => c.destroy()); charts = [];
+      const root = $('#reportRoot');
+
+      if (acc.error) {
+        root.innerHTML = `<div class="sec">${empty('Erro ao coletar dados: ' + acc.error)}</div>`;
+        return;
+      }
+      const o = acc.overview;
+
+      root.innerHTML = `
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Visão Geral — ${acc.name} <span style="color:var(--muted);font-weight:500;text-transform:none">${acc.username}</span></div>
+          <div class="sec-note">Dados fornecidos pela API do Instagram. Período: ${REPORT.meta.period} · comparação com ${REPORT.meta.prevPeriod}.</div>
+          <div class="kpi-grid">
+            ${kpi('Seguidores', o.followers.value, o.followers.growth)}
+            ${kpi('Começaram a Seguir', o.new_followers.value, o.new_followers.growth)}
+            ${kpi('Publicações', o.posts.value, o.posts.growth)}
+            ${kpi('Visualizações', o.views.value, o.views.growth)}
+            ${kpi('Alcance', o.reach.value, o.reach.growth)}
+            ${kpi('Curtidas', o.likes.value, o.likes.growth)}
+            ${kpi('Comentários', o.comments.value, o.comments.growth)}
+            ${kpi('Pessoas Engajadas', o.engaged.value, o.engaged.growth)}
+            ${kpi('Interações Totais', o.interactions.value, o.interactions.growth)}
+            ${kpi('Taxa de Engajamento', o.engagement_rate.value, o.engagement_rate.growth, true)}
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Funil de Engajamento</div>
+          <div class="funnel" id="funnel"></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Resumo do Período</div>
+          <div class="summary-txt" id="summary"></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Alcance Diário</div>
+          <div class="chart-wrap">${acc.reach_daily && acc.reach_daily.length ? '<canvas id="chReach"></canvas>' : empty()}</div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Novos Seguidores por Dia</div>
+          <div class="chart-wrap">${acc.follow_daily && acc.follow_daily.length ? '<canvas id="chFollow"></canvas>' : empty()}</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="sec">
+            <div class="sec-title"><span class="ig">📷</span> Atividade por Dia da Semana</div>
+            <div class="chart-wrap">${acc.online_weekdays ? '<canvas id="chWd"></canvas>' : empty()}</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span class="ig">📷</span> Atividade por Horário</div>
+            <div class="chart-wrap">${acc.online_hours ? '<canvas id="chHours"></canvas>' : empty()}</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="sec">
+            <div class="sec-title"><span class="ig">📷</span> Gênero</div>
+            <div class="chart-wrap">${acc.demo_gender && acc.demo_gender.length ? '<canvas id="chGender"></canvas>' : empty()}</div>
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span class="ig">📷</span> Faixa Etária</div>
+            <div class="chart-wrap">${acc.demo_age && acc.demo_age.length ? '<canvas id="chAge"></canvas>' : empty()}</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="sec">
+            <div class="sec-title"><span class="ig">📷</span> Seguidores por Cidade</div>
+            ${simpleTable(acc.demo_city, 'Cidade', 'Seguidores')}
+          </div>
+          <div class="sec">
+            <div class="sec-title"><span class="ig">📷</span> Melhores Hashtags</div>
+            ${simpleTable(acc.hashtags, '#Hashtag', 'Total de interações')}
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Principais Publicações</div>
+          ${postTable(acc.top_posts, [
+            {key:'reach',lbl:'Alcance'},{key:'likes',lbl:'Curtidas'},{key:'comments',lbl:'Comentários'},
+            {key:'eng_rate',lbl:'Tx. Engaj.',suffix:'%'},{key:'saved',lbl:'Salvos'},{key:'shares',lbl:'Compart.'}
+          ])}
+        </div>
+
+        <div class="sec">
+          <div class="sec-title"><span class="ig">📷</span> Principais Reels</div>
+          ${postTable(acc.top_reels, [
+            {key:'views',lbl:'Visualizações'},{key:'likes',lbl:'Curtidas'},{key:'comments',lbl:'Comentários'},
+            {key:'interactions',lbl:'Interações'},{key:'saved',lbl:'Salvos'}
+          ])}
+        </div>
+      `;
+
+      // ── Funil ──
+      const steps = [
+        { lbl:'Visualizações', v:o.views.value, g:o.views.growth, w:100, c:'#E5C88E' },
+        { lbl:'Alcance', v:o.reach.value, g:o.reach.growth, w:76, c:'#C9A96E' },
+        { lbl:'Interações', v:o.interactions.value, g:o.interactions.growth, w:52, c:'#A8854B' },
+        { lbl:'Comentários', v:o.comments.value, g:o.comments.growth, w:30, c:'#7E6335' }
+      ];
+      $('#funnel').innerHTML = steps.map(s => `
+        <div class="fstep">
+          <div class="fgrow" style="color:${s.g==null?'var(--muted)':(s.g>=0?'var(--green)':'var(--red)')}">${s.g==null?'':(s.g>=0?'↑ ':'↓ ')+Math.abs(s.g).toLocaleString('pt-BR',{maximumFractionDigits:1})+'%'}</div>
+          <div class="fbar" style="width:${s.w}%;background:${s.c}">${s.lbl}: ${fmt(s.v)}</div>
+        </div>`).join('');
+
+      // ── Resumo dinâmico ──
+      const bestPost = acc.top_posts && acc.top_posts[0];
+      $('#summary').innerHTML = `
+        Foram feitas <b>${o.posts.value}</b> publicações no período de <b>${REPORT.meta.period}</b>, que geraram
+        <b>${fmt(o.likes.value)}</b> curtidas e <b>${fmt(o.comments.value)}</b> comentários.
+        O perfil alcançou <b>${fmt(o.reach.value)}</b> contas únicas com <b>${fmt(o.views.value)}</b> visualizações de conteúdo.
+        ${o.engaged.value != null ? `O número de pessoas engajadas foi de <b>${fmt(o.engaged.value)}</b>, resultando em uma taxa de engajamento de <b>${pct(o.engagement_rate.value)}</b> sobre o alcance.` : ''}
+        ${o.new_followers.value ? `A conta ganhou <b>${fmt(o.new_followers.value)}</b> novos seguidores no período.` : ''}
+        ${bestPost ? `O post de melhor desempenho alcançou <b>${fmt(bestPost.reach)}</b> contas: <i>"${bestPost.caption}..."</i>` : ''}
+      `;
+
+      // ── Charts ──
+      const lineOpts = {
+        responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false} },
+        scales:{ x:{ grid:{display:false}, ticks:{ maxTicksLimit:10, font:{size:10} } }, y:{ beginAtZero:true, ticks:{font:{size:10}} } }
+      };
+      const brShort = d => d.slice(8,10)+'/'+d.slice(5,7);
+
+      if (acc.reach_daily && acc.reach_daily.length) {
+        charts.push(new Chart($('#chReach'), { type:'line', data:{
+          labels: acc.reach_daily.map(x=>brShort(x.date)),
+          datasets:[{ data:acc.reach_daily.map(x=>x.value), borderColor:'#C9A96E', backgroundColor:'rgba(201,169,110,.12)', fill:true, tension:.35, pointRadius:0, borderWidth:2 }]
+        }, options:lineOpts }));
+      }
+      if (acc.follow_daily && acc.follow_daily.length) {
+        charts.push(new Chart($('#chFollow'), { type:'line', data:{
+          labels: acc.follow_daily.map(x=>brShort(x.date)),
+          datasets:[{ data:acc.follow_daily.map(x=>x.value), borderColor:'#4ADE80', backgroundColor:'rgba(74,222,128,.10)', fill:true, tension:.35, pointRadius:0, borderWidth:2 }]
+        }, options:lineOpts }));
+      }
+      if (acc.online_weekdays) {
+        charts.push(new Chart($('#chWd'), { type:'bar', data:{
+          labels: WD,
+          datasets:[{ data:acc.online_weekdays, backgroundColor:'#C9A96E', borderRadius:6 }]
+        }, options:lineOpts }));
+      }
+      if (acc.online_hours) {
+        charts.push(new Chart($('#chHours'), { type:'line', data:{
+          labels: acc.online_hours.map((_,h)=>h+':00'),
+          datasets:[{ data:acc.online_hours, borderColor:'#E5C88E', backgroundColor:'rgba(229,200,142,.10)', fill:true, tension:.4, pointRadius:0, borderWidth:2 }]
+        }, options:lineOpts }));
+      }
+      if (acc.demo_gender && acc.demo_gender.length) {
+        const map = {'F':'Feminino','M':'Masculino','U':'Não informado'};
+        charts.push(new Chart($('#chGender'), { type:'doughnut', data:{
+          labels: acc.demo_gender.map(x=>map[x.label]||x.label),
+          datasets:[{ data:acc.demo_gender.map(x=>x.value), backgroundColor:['#C9A96E','#2E86AB','#5C6070'], borderColor:'#16181F', borderWidth:3 }]
+        }, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{font:{size:11}} } } } }));
+      }
+      if (acc.demo_age && acc.demo_age.length) {
+        const sorted = [...acc.demo_age].sort((a,b)=>a.label.localeCompare(b.label));
+        charts.push(new Chart($('#chAge'), { type:'bar', data:{
+          labels: sorted.map(x=>x.label),
+          datasets:[{ data:sorted.map(x=>x.value), backgroundColor:'#C9A96E', borderRadius:6 }]
+        }, options:lineOpts }));
+      }
+    }
+
+    // ── init ──
+    document.addEventListener('DOMContentLoaded', function(){
+      $('#periodBadge').textContent = 'Período: ' + REPORT.meta.period;
+      $('#genAt').textContent = 'Atualizado em ' + REPORT.meta.generatedAt;
+
+      const pills = $('#accPills');
+      REPORT.accounts.forEach((acc, i) => {
+        const el = document.createElement('div');
+        el.className = 'apill' + (i===0?' active':'');
+        el.innerHTML = `<span class="dot" style="background:${acc.color}"></span>${acc.name}`;
+        el.onclick = () => {
+          document.querySelectorAll('.apill').forEach(p=>p.classList.remove('active'));
+          el.classList.add('active');
+          render(acc);
+          window.scrollTo({top:0, behavior:'smooth'});
+        };
+        pills.appendChild(el);
+      });
+      render(REPORT.accounts[0]);
+    });
+  })();
+  </script>
+</body>
+</html>
