@@ -30,3 +30,16 @@ jobs:
 
       - name: Buscar dados do Instagram e atualizar dashboard
         run: node update.js
+
+      - name: Gerar relatório detalhado
+        run: node update-relatorio.js
+
+      - name: Publicar report-data.js
+        run: |
+          git add report-data.js
+          if git diff --cached --quiet; then
+            echo "Sem alterações no relatório."
+          else
+            git commit -m "relatorio: atualização detalhada $(date +%Y-%m-%d)"
+            git push origin main
+          fi
