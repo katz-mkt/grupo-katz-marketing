@@ -19,9 +19,9 @@ try {
     $resultado = & node "$PROJETO\update.js" 2>&1
     Add-Content $LOG $resultado
 
-    # 2) Atualiza relatorio detalhado (gera report-data.js)
-    Add-Content $LOG "[$(Get-Date -Format 'yyyy-MM-dd HH:mm')] Gerando relatorio detalhado..."
-    $relatorio = & node "$PROJETO\update-relatorio.js" 2>&1
+    # 2) Sincroniza a base historica (Google Sheets) e regenera report-data.js
+    Add-Content $LOG "[$(Get-Date -Format 'yyyy-MM-dd HH:mm')] Sincronizando base historica..."
+    $relatorio = & node "$PROJETO\sync-base.js" 2>&1
     Add-Content $LOG $relatorio
 
     # 3) Commit + push do relatorio (data.js ja foi pelo update.js)

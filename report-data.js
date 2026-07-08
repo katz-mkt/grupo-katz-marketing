@@ -1,12 +1,14 @@
-// RELATÓRIO DETALHADO — gerado automaticamente em 05/07/2026
-// Período: 05/06/2026 – 04/07/2026 | Comparação: 06/05/2026 – 04/06/2026
-// Gerado por update-relatorio.js — NÃO editar manualmente
+// RELATÓRIO DETALHADO — gerado por sync-base.js em 08/07/2026
+// Fonte: base histórica no Google Sheets (acumulada, sem limite de 30 dias)
+// Planilha: https://docs.google.com/spreadsheets/d/1KMD73Oc6SoIfyFWrTjL-Z1_CEzZQKBLiXJPDmgvQ6pU/edit
+// NÃO editar manualmente
 
 const REPORT = {
   meta: {
-    generatedAt : "05/07/2026",
-    period      : "05/06/2026 – 04/07/2026",
-    prevPeriod  : "06/05/2026 – 04/06/2026"
+    generatedAt : "08/07/2026",
+    period      : "08/06/2026 – 07/07/2026",
+    prevPeriod  : "09/05/2026 – 07/06/2026",
+    source      : "Google Sheets (base acumulada)"
   },
   accounts: [
   {
@@ -16,18 +18,10 @@ const REPORT = {
     "url": "https://instagram.com/katz.life.style",
     "color": "#C9A96E",
     "error": null,
-    "followers": 46501,
-    "media_count": 1326,
-    "avatar": "https://scontent.fpoj7-1.fna.fbcdn.net/v/t51.2885-15/452509744_1152532289334145_4680203350320671034_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=lyNPKaO7KrsQ7kNvwG_WK9J&_nc_oc=Adqxr17sD0KE7-m80ZrbRSze6xefuLG4s75SRzkAMS_MUIVtFlP5kU3IAceNTL_FkW4&_nc_zt=23&_nc_ht=scontent.fpoj7-1.fna&edm=AL-3X8kEAAAA&oh=00_AQBVFC-eJEPjNwgv8_3lAUc5G-P3a16cDHgCPMlSfOJiJw&oe=6A50D040",
+    "followers": 46560,
+    "media_count": 1324,
+    "avatar": "https://scontent.fplu6-1.fna.fbcdn.net/v/t51.2885-15/452509744_1152532289334145_4680203350320671034_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=L9lawEMyzEgQ7kNvwEdd4ni&_nc_oc=Adq_XMpX_dQzTiwiGHTBjDbNjRd9Tm2w-wDe2D5tVX4L_aYmWNz6Ag7WJ9omAkj6jv0DaU5xysX3_mjfsB2rsRR5&_nc_zt=23&_nc_ht=scontent.fplu6-1.fna&edm=AL-3X8kEAAAA&oh=00_AQDnfxIdYuu2bhPitThkBbD91qDQOvSoQyrGmb7EhmKrWQ&oe=6A541C00",
     "reach_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 23905
-      },
-      {
-        "date": "2026-06-07",
-        "value": 16901
-      },
       {
         "date": "2026-06-08",
         "value": 14291
@@ -135,17 +129,17 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 31041
+      },
+      {
+        "date": "2026-07-05",
+        "value": 31203
+      },
+      {
+        "date": "2026-07-06",
+        "value": 25551
       }
     ],
     "follow_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 29
-      },
-      {
-        "date": "2026-06-07",
-        "value": 29
-      },
       {
         "date": "2026-06-08",
         "value": 15
@@ -253,81 +247,89 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 28
+      },
+      {
+        "date": "2026-07-05",
+        "value": 31
+      },
+      {
+        "date": "2026-07-06",
+        "value": 50
       }
     ],
     "online_hours": [
-      2586,
-      4192,
-      8314,
-      12825,
-      15461,
-      16238,
-      16299,
-      16577,
-      17492,
-      17795,
-      17074,
-      16793,
-      17063,
-      17649,
-      18461,
-      18408,
-      18360,
-      18198,
-      16337,
-      12231,
-      7662,
-      4421,
-      2858,
+      2588,
+      4184,
+      8303,
+      12835,
+      15485,
+      16268,
+      16332,
+      16610,
+      17527,
+      17838,
+      17115,
+      16836,
+      17110,
+      17621,
+      18462,
+      18495,
+      18423,
+      18232,
+      16374,
+      12270,
+      7694,
+      4429,
+      2863,
       2315
     ],
     "online_weekdays": [
-      19287,
-      19783,
+      19790,
+      15890,
       19455,
       19503,
       19414,
       19375,
-      14787
+      18484
     ],
     "demo_gender": [
       {
         "label": "M",
-        "value": 21230
+        "value": 21250
       },
       {
         "label": "F",
-        "value": 16264
+        "value": 16288
       },
       {
         "label": "U",
-        "value": 6995
+        "value": 7000
       }
     ],
     "demo_age": [
       {
         "label": "45-54",
-        "value": 13250
+        "value": 13269
       },
       {
         "label": "35-44",
-        "value": 13072
+        "value": 13082
       },
       {
         "label": "55-64",
-        "value": 7181
+        "value": 7188
       },
       {
         "label": "25-34",
-        "value": 6661
+        "value": 6664
       },
       {
         "label": "65+",
-        "value": 3531
+        "value": 3544
       },
       {
         "label": "18-24",
-        "value": 748
+        "value": 745
       },
       {
         "label": "13-17",
@@ -337,214 +339,248 @@ const REPORT = {
     "demo_city": [
       {
         "label": "Belo Horizonte, Minas Gerais",
-        "value": 9100
+        "value": 9143
       },
       {
         "label": "São Paulo, São Paulo (state)",
-        "value": 3617
+        "value": 3615
       },
       {
         "label": "Rio de Janeiro, Rio de Janeiro (state)",
-        "value": 1271
+        "value": 1264
       },
       {
         "label": "Nova Lima, Minas Gerais",
-        "value": 1255
+        "value": 1260
       },
       {
         "label": "Salvador, Bahia",
-        "value": 960
+        "value": 976
       },
       {
         "label": "Contagem, Minas Gerais",
-        "value": 813
+        "value": 805
       },
       {
         "label": "Porto Seguro, Bahia",
-        "value": 804
+        "value": 788
       },
       {
         "label": "Goiânia, Goiás",
-        "value": 554
+        "value": 547
       },
       {
         "label": "Curitiba, Paraná",
-        "value": 413
+        "value": 410
       },
       {
         "label": "Campinas, São Paulo (state)",
         "value": 390
       }
     ],
-    "posts_period": 3,
+    "posts_period": 4,
     "top_posts": [
       {
         "caption": "Por que Acuruí?\nLocalizado na Estrada Real, o Haras do Passo está a 50 min de BH, mas tota",
         "url": "https://www.instagram.com/reel/DZscousiqBz/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/726575075_18481713886099096_1114189236908350975_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Rb17VTH4QxIQ7kNvwEq3iWj&_nc_oc=AdpDwi_D3aMuwhkwOGy8Ef6Qin4yOHnDu6K_MljIoB9UNu9KfLlg1jWqPvDlBVOsYXg&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=4hzchjAkftWxO0V0Du_Gpg&_nc_tpa=Q5bMBQHXPMu5z_KIipTnEjvGCIMqJEAp05Ohl_WJW0zxvhUc8VrNZ0b-FOp3DsrBqVbQyHcXi_a7TBeM&oh=00_AQClfpBp9lwrZ013fiKLFQDT17GOrl-EebxQCx5Vlg5HOw&oe=6A510288",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/726575075_18481713886099096_1114189236908350975_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=uEI-RvdGEvUQ7kNvwFs2Nql&_nc_oc=AdpOqOXvnY4jY4DhXwcHkzWmzwtI1FB-kd82M1hNWnIkadRNucdJ-wE7ZP2yNgJunseUdOAAplbBrjifeGmE0BqX&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQGTlHXYNb3QvDf77XQXyblsz-S9LrLQQLG2O6WMcTz46-brBB3Jz2gskxmpmoxa2xyXUy1S2ps1&oh=00_AQAW6-GgWfs-Xc8ni5qSRV3mAKhdgaWmczi3PSnTZxy1Gw&oe=6A541608",
         "date": "2026-06-17",
         "type": "REELS",
-        "reach": 1789,
-        "views": 2292,
+        "reach": 1803,
+        "views": 2318,
         "likes": 53,
         "comments": 1,
         "saved": 6,
-        "shares": 11,
-        "interactions": 71,
-        "eng_rate": 3.97
+        "shares": 12,
+        "interactions": 72,
+        "eng_rate": 3.99
       },
       {
         "caption": "Sabe o que alimenta uma semana inteira de trabalho?\n\nAbrir a janela no sabado de manha e v",
         "url": "https://www.instagram.com/reel/DaOgjGVCS_X/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/730753942_3281552698695840_2749835305262160444_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=6ohUjd8hto0Q7kNvwE0ZoOt&_nc_oc=Adr3Ktb_Fpie0z1xMUr9hA6zl7D45n1vsQQUwcWxLrd1Q4Ywqjqaw74np-CV-BmDKK0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=4hzchjAkftWxO0V0Du_Gpg&_nc_tpa=Q5bMBQG7QVFsME43DvZ3fPJB1DEWLXSDBGRnumGscv4Tc8BLqa7qxR1sxSHLyu9tb6yFOY-xOIbi4_YG&oh=00_AQAScmiC8j9546nXP4VZgdUE9k68POkcFe8gkUe7QQiobA&oe=6A50E834",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/730753942_3281552698695840_2749835305262160444_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=n7tSEcPBwswQ7kNvwH3W2od&_nc_oc=Adr0ayjSDTGA8Ux9xCk232z3h6jdceRa4SH9h7lKBs9uWeEK31CNoi7IVqToZMMLx1S08iojqKPZ6oaqRN4urRF5&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQHL_M7MFSJLdhglH4ZYAYY8tTQtYDvYOcMaaCOu40siQydM_Tx9gpzOUGsNU_Sb0BhoQ00QKTZD&oh=00_AQCJnd2xH8GvJuZYAIpQkoEK3GMMmMNnGKukcU3Z53plsg&oe=6A53FBB4",
         "date": "2026-06-30",
         "type": "REELS",
-        "reach": 762,
-        "views": 923,
-        "likes": 17,
+        "reach": 803,
+        "views": 964,
+        "likes": 19,
         "comments": 0,
         "saved": 0,
         "shares": 0,
-        "interactions": 17,
-        "eng_rate": 2.23
+        "interactions": 19,
+        "eng_rate": 2.37
       },
       {
         "caption": "Falar e dificil. Voce precisa vir aqui pra ver.\n\nTrilhas com musgos de 100% de oxigenacao.",
         "url": "https://www.instagram.com/reel/DaVvOTkiYQD/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/732863449_1986689668646527_5632820358407174192_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=lgEfifXXvt8Q7kNvwHRKEYV&_nc_oc=Adqtwq0wUF4TGY8zuAZaStqzZi32qHc9oqnOYrzyMICi3VC2lR-Uf-9-uZbvAB44c7M&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=4hzchjAkftWxO0V0Du_Gpg&_nc_tpa=Q5bMBQFqHvziWjCniMXs3ag-KZy96SgOL_ucAfqmh9Olg4YKdjlZB-bI7BaAo_T1qhT5klD2ghEPcom0&oh=00_AQAAAWWVzmpk-TBFkEBipwrSILMfU6qXcwqRCzaUVdabJQ&oe=6A5101CF",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/732863449_1986689668646527_5632820358407174192_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=lgEfifXXvt8Q7kNvwHuNSQQ&_nc_oc=AdrsnsUXaz_ht60l4zCd0dMuJXgchw9gmwC4dcmICSNCBvwVg0QNOepjW0G5crpZZW3mieSdIFTy66ODTjjAJ7Sn&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQFdVZNEOLQxClLJmECHToArle2Au4zS6ltC2_MHO6g_anyYqAkeqNN2lQ5QppXul_YkPRwpURmD&oh=00_AQCHQdcBqGj4Wx0oxE_XdFXo69u4gAFddUhlw_1ew1ZOUg&oe=6A54154F",
         "date": "2026-07-03",
         "type": "REELS",
-        "reach": 555,
-        "views": 672,
+        "reach": 596,
+        "views": 709,
         "likes": 15,
         "comments": 0,
         "saved": 1,
-        "shares": 3,
-        "interactions": 19,
-        "eng_rate": 3.42
+        "shares": 4,
+        "interactions": 20,
+        "eng_rate": 3.36
+      },
+      {
+        "caption": "De manha, cavalo.\nDe tarde, bike.\nE se quiser, va a pe ate Acurui - sao menos de 5 km.\n\nBr",
+        "url": "https://www.instagram.com/reel/DadC9DmiSlE/",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/741643345_1642879443455262_8541351095451098884_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ub8SVB8T0BgQ7kNvwEYc85p&_nc_oc=Ado2UQ00-BWl5o-YCw1Ak-aWPNkWc8koSRoH1dnQ0saWAR_0E2nkYab2lszw06ozXwLsLlOlaYc_sVmMoZ3IpRrS&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQEVfwi1LqYITBnT9sPbB0nIW_qlKULqgR5H2zeTDQ5Brq4jpZqX257INhoIMrCtlxPdF0YN_XJv&oh=00_AQAt3Ov4-U6ZsWB9tIG2JkmZ1mU6PaCqTg5OedfT4_34Zw&oe=6A5400E6",
+        "date": "2026-07-06",
+        "type": "REELS",
+        "reach": 493,
+        "views": 606,
+        "likes": 10,
+        "comments": 1,
+        "saved": 1,
+        "shares": 1,
+        "interactions": 13,
+        "eng_rate": 2.64
       }
     ],
     "top_reels": [
       {
         "caption": "Por que Acuruí?\nLocalizado na Estrada Real, o Haras do Passo está a 50 min de BH, mas tota",
         "url": "https://www.instagram.com/reel/DZscousiqBz/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/726575075_18481713886099096_1114189236908350975_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Rb17VTH4QxIQ7kNvwEq3iWj&_nc_oc=AdpDwi_D3aMuwhkwOGy8Ef6Qin4yOHnDu6K_MljIoB9UNu9KfLlg1jWqPvDlBVOsYXg&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=4hzchjAkftWxO0V0Du_Gpg&_nc_tpa=Q5bMBQHXPMu5z_KIipTnEjvGCIMqJEAp05Ohl_WJW0zxvhUc8VrNZ0b-FOp3DsrBqVbQyHcXi_a7TBeM&oh=00_AQClfpBp9lwrZ013fiKLFQDT17GOrl-EebxQCx5Vlg5HOw&oe=6A510288",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/726575075_18481713886099096_1114189236908350975_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=uEI-RvdGEvUQ7kNvwFs2Nql&_nc_oc=AdpOqOXvnY4jY4DhXwcHkzWmzwtI1FB-kd82M1hNWnIkadRNucdJ-wE7ZP2yNgJunseUdOAAplbBrjifeGmE0BqX&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQGTlHXYNb3QvDf77XQXyblsz-S9LrLQQLG2O6WMcTz46-brBB3Jz2gskxmpmoxa2xyXUy1S2ps1&oh=00_AQAW6-GgWfs-Xc8ni5qSRV3mAKhdgaWmczi3PSnTZxy1Gw&oe=6A541608",
         "date": "2026-06-17",
         "type": "REELS",
-        "reach": 1789,
-        "views": 2292,
+        "reach": 1803,
+        "views": 2318,
         "likes": 53,
         "comments": 1,
         "saved": 6,
-        "shares": 11,
-        "interactions": 71,
-        "eng_rate": 3.97
+        "shares": 12,
+        "interactions": 72,
+        "eng_rate": 3.99
       },
       {
         "caption": "Sabe o que alimenta uma semana inteira de trabalho?\n\nAbrir a janela no sabado de manha e v",
         "url": "https://www.instagram.com/reel/DaOgjGVCS_X/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/730753942_3281552698695840_2749835305262160444_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=6ohUjd8hto0Q7kNvwE0ZoOt&_nc_oc=Adr3Ktb_Fpie0z1xMUr9hA6zl7D45n1vsQQUwcWxLrd1Q4Ywqjqaw74np-CV-BmDKK0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=4hzchjAkftWxO0V0Du_Gpg&_nc_tpa=Q5bMBQG7QVFsME43DvZ3fPJB1DEWLXSDBGRnumGscv4Tc8BLqa7qxR1sxSHLyu9tb6yFOY-xOIbi4_YG&oh=00_AQAScmiC8j9546nXP4VZgdUE9k68POkcFe8gkUe7QQiobA&oe=6A50E834",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/730753942_3281552698695840_2749835305262160444_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=n7tSEcPBwswQ7kNvwH3W2od&_nc_oc=Adr0ayjSDTGA8Ux9xCk232z3h6jdceRa4SH9h7lKBs9uWeEK31CNoi7IVqToZMMLx1S08iojqKPZ6oaqRN4urRF5&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQHL_M7MFSJLdhglH4ZYAYY8tTQtYDvYOcMaaCOu40siQydM_Tx9gpzOUGsNU_Sb0BhoQ00QKTZD&oh=00_AQCJnd2xH8GvJuZYAIpQkoEK3GMMmMNnGKukcU3Z53plsg&oe=6A53FBB4",
         "date": "2026-06-30",
         "type": "REELS",
-        "reach": 762,
-        "views": 923,
-        "likes": 17,
+        "reach": 803,
+        "views": 964,
+        "likes": 19,
         "comments": 0,
         "saved": 0,
         "shares": 0,
-        "interactions": 17,
-        "eng_rate": 2.23
+        "interactions": 19,
+        "eng_rate": 2.37
       },
       {
         "caption": "Falar e dificil. Voce precisa vir aqui pra ver.\n\nTrilhas com musgos de 100% de oxigenacao.",
         "url": "https://www.instagram.com/reel/DaVvOTkiYQD/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/732863449_1986689668646527_5632820358407174192_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=lgEfifXXvt8Q7kNvwHRKEYV&_nc_oc=Adqtwq0wUF4TGY8zuAZaStqzZi32qHc9oqnOYrzyMICi3VC2lR-Uf-9-uZbvAB44c7M&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=4hzchjAkftWxO0V0Du_Gpg&_nc_tpa=Q5bMBQFqHvziWjCniMXs3ag-KZy96SgOL_ucAfqmh9Olg4YKdjlZB-bI7BaAo_T1qhT5klD2ghEPcom0&oh=00_AQAAAWWVzmpk-TBFkEBipwrSILMfU6qXcwqRCzaUVdabJQ&oe=6A5101CF",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/732863449_1986689668646527_5632820358407174192_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=lgEfifXXvt8Q7kNvwHuNSQQ&_nc_oc=AdrsnsUXaz_ht60l4zCd0dMuJXgchw9gmwC4dcmICSNCBvwVg0QNOepjW0G5crpZZW3mieSdIFTy66ODTjjAJ7Sn&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQFdVZNEOLQxClLJmECHToArle2Au4zS6ltC2_MHO6g_anyYqAkeqNN2lQ5QppXul_YkPRwpURmD&oh=00_AQCHQdcBqGj4Wx0oxE_XdFXo69u4gAFddUhlw_1ew1ZOUg&oe=6A54154F",
         "date": "2026-07-03",
         "type": "REELS",
-        "reach": 555,
-        "views": 672,
+        "reach": 596,
+        "views": 709,
         "likes": 15,
         "comments": 0,
         "saved": 1,
-        "shares": 3,
-        "interactions": 19,
-        "eng_rate": 3.42
+        "shares": 4,
+        "interactions": 20,
+        "eng_rate": 3.36
+      },
+      {
+        "caption": "De manha, cavalo.\nDe tarde, bike.\nE se quiser, va a pe ate Acurui - sao menos de 5 km.\n\nBr",
+        "url": "https://www.instagram.com/reel/DadC9DmiSlE/",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/741643345_1642879443455262_8541351095451098884_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ub8SVB8T0BgQ7kNvwEYc85p&_nc_oc=Ado2UQ00-BWl5o-YCw1Ak-aWPNkWc8koSRoH1dnQ0saWAR_0E2nkYab2lszw06ozXwLsLlOlaYc_sVmMoZ3IpRrS&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=HZEv3kqKI5DVGrpUDkQQcg&_nc_tpa=Q5bMBQEVfwi1LqYITBnT9sPbB0nIW_qlKULqgR5H2zeTDQ5Brq4jpZqX257INhoIMrCtlxPdF0YN_XJv&oh=00_AQAt3Ov4-U6ZsWB9tIG2JkmZ1mU6PaCqTg5OedfT4_34Zw&oe=6A5400E6",
+        "date": "2026-07-06",
+        "type": "REELS",
+        "reach": 493,
+        "views": 606,
+        "likes": 10,
+        "comments": 1,
+        "saved": 1,
+        "shares": 1,
+        "interactions": 13,
+        "eng_rate": 2.64
       }
     ],
     "hashtags": [
       {
         "tag": "harasdopasso",
-        "value": 71
+        "value": 72
       },
       {
         "tag": "acurui",
-        "value": 71
+        "value": 72
       },
       {
         "tag": "HarasDoPasso",
-        "value": 36
+        "value": 52
       },
       {
         "tag": "CondominioEquestre",
-        "value": 36
+        "value": 52
       },
       {
         "tag": "SerraDoGandarela",
-        "value": 36
-      },
-      {
-        "tag": "AcuruiMG",
-        "value": 19
+        "value": 39
       },
       {
         "tag": "grupokatz",
-        "value": 19
+        "value": 33
+      },
+      {
+        "tag": "AcuruiMG",
+        "value": 33
       },
       {
         "tag": "LifestyleHipico",
-        "value": 17
+        "value": 19
+      },
+      {
+        "tag": "EstradaReal",
+        "value": 13
       }
     ],
     "overview": {
       "followers": {
-        "value": 46501,
+        "value": 46560,
         "growth": null
       },
       "new_followers": {
-        "value": 651,
+        "value": 674,
         "growth": null
       },
       "posts": {
-        "value": 3,
+        "value": 4,
         "growth": null
       },
       "views": {
-        "value": 1091801,
-        "growth": -5.16
+        "value": 1095971,
+        "growth": -4.9
       },
       "reach": {
-        "value": 226623,
-        "growth": -11.25
+        "value": 223624,
+        "growth": -11.08
       },
       "likes": {
-        "value": 2711,
-        "growth": 1.99
+        "value": 2784,
+        "growth": 11.63
       },
       "comments": {
-        "value": 68,
-        "growth": 19.3
+        "value": 65,
+        "growth": 18.18
       },
       "engaged": {
-        "value": 2457,
-        "growth": -6.72
+        "value": 2518,
+        "growth": 4.01
       },
       "interactions": {
-        "value": 4060,
-        "growth": 7.21
+        "value": 4149,
+        "growth": 17.04
       },
       "engagement_rate": {
-        "value": 1.08,
-        "growth": 5.11
+        "value": 1.13,
+        "growth": 16.96
       }
     }
   },
@@ -555,18 +591,10 @@ const REPORT = {
     "url": "https://instagram.com/hauzconstrucoes",
     "color": "#2E86AB",
     "error": null,
-    "followers": 16125,
-    "media_count": 612,
-    "avatar": "https://scontent.fpoj7-1.fna.fbcdn.net/v/t51.82787-15/670100728_18577790200048530_4552487461922327867_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7d201b&_nc_ohc=u9X30p-LFdIQ7kNvwE1dJp2&_nc_oc=Ado-FPCQU2MOtYaSfPpwNINghQWvDUm0FPha_KdnOlCHosxTc-BHv0v76E2IbYktHzo&_nc_zt=23&_nc_ht=scontent.fpoj7-1.fna&edm=AL-3X8kEAAAA&_nc_gid=UaXrcG1JeSqefo5bagM6hQ&oh=00_AQAqFunRrEZ6z4qxtn3RS5qi2zvEAvKg9dtKn96nKcWDdQ&oe=6A50EC0D",
+    "followers": 16134,
+    "media_count": 613,
+    "avatar": "https://scontent.fplu6-1.fna.fbcdn.net/v/t51.82787-15/670100728_18577790200048530_4552487461922327867_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7d201b&_nc_ohc=g1c3h6YPS_oQ7kNvwHSoDpO&_nc_oc=AdpZ_GushkbKVqxZu59ie_H8fE-u-I2n5xGjHi1yvazzWs0jwSULX3xZj_HoljGPD30gZ6WaKNks3Ui5rQzIsCEK&_nc_zt=23&_nc_ht=scontent.fplu6-1.fna&edm=AL-3X8kEAAAA&_nc_gid=ygAKD4OMZxUnFAxGH9FF-A&oh=00_AQA86OW9sObg3pBLUWBecYc-ZoyHu9abUKQ26c3_BM5Q4Q&oe=6A53FF8D",
     "reach_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 1595
-      },
-      {
-        "date": "2026-06-07",
-        "value": 217
-      },
       {
         "date": "2026-06-08",
         "value": 263
@@ -674,17 +702,17 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 101
+      },
+      {
+        "date": "2026-07-05",
+        "value": 54
+      },
+      {
+        "date": "2026-07-06",
+        "value": 1372
       }
     ],
     "follow_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 17
-      },
-      {
-        "date": "2026-06-07",
-        "value": 7
-      },
       {
         "date": "2026-06-08",
         "value": 6
@@ -792,61 +820,69 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 5
+      },
+      {
+        "date": "2026-07-05",
+        "value": 3
+      },
+      {
+        "date": "2026-07-06",
+        "value": 9
       }
     ],
     "online_hours": [
-      842,
-      1357,
-      2704,
-      4164,
-      5004,
-      5263,
-      5296,
-      5417,
-      5745,
-      5810,
-      5529,
-      5423,
-      5533,
-      5735,
-      5957,
-      5931,
-      5911,
-      5843,
-      5251,
-      3919,
-      2458,
-      1447,
-      956,
-      775
+      841,
+      1354,
+      2703,
+      4169,
+      5006,
+      5270,
+      5306,
+      5427,
+      5752,
+      5821,
+      5537,
+      5429,
+      5545,
+      5729,
+      5959,
+      5955,
+      5924,
+      5853,
+      5258,
+      3924,
+      2472,
+      1455,
+      959,
+      777
     ],
     "online_weekdays": [
-      6122,
-      6389,
+      6259,
+      5135,
       6315,
       6335,
       6282,
       6284,
-      4722
+      5903
     ],
     "demo_gender": [
       {
         "label": "M",
-        "value": 6911
+        "value": 6915
       },
       {
         "label": "F",
-        "value": 5290
+        "value": 5293
       },
       {
         "label": "U",
-        "value": 2859
+        "value": 2858
       }
     ],
     "demo_age": [
       {
         "label": "35-44",
-        "value": 5082
+        "value": 5088
       },
       {
         "label": "45-54",
@@ -854,19 +890,19 @@ const REPORT = {
       },
       {
         "label": "25-34",
-        "value": 3204
+        "value": 3202
       },
       {
         "label": "55-64",
-        "value": 1789
+        "value": 1791
       },
       {
         "label": "65+",
-        "value": 768
+        "value": 769
       },
       {
         "label": "18-24",
-        "value": 335
+        "value": 334
       },
       {
         "label": "13-17",
@@ -876,15 +912,15 @@ const REPORT = {
     "demo_city": [
       {
         "label": "Belo Horizonte, Minas Gerais",
-        "value": 2394
+        "value": 2392
       },
       {
         "label": "São Paulo, São Paulo (state)",
-        "value": 1427
+        "value": 1430
       },
       {
         "label": "Rio de Janeiro, Rio de Janeiro (state)",
-        "value": 457
+        "value": 459
       },
       {
         "label": "Nova Lima, Minas Gerais",
@@ -892,7 +928,7 @@ const REPORT = {
       },
       {
         "label": "Salvador, Bahia",
-        "value": 238
+        "value": 243
       },
       {
         "label": "Contagem, Minas Gerais",
@@ -904,7 +940,7 @@ const REPORT = {
       },
       {
         "label": "Goiânia, Goiás",
-        "value": 164
+        "value": 162
       },
       {
         "label": "Campinas, São Paulo (state)",
@@ -912,145 +948,160 @@ const REPORT = {
       },
       {
         "label": "Curitiba, Paraná",
-        "value": 139
+        "value": 143
       }
     ],
-    "posts_period": 5,
+    "posts_period": 6,
     "top_posts": [
+      {
+        "caption": "Villa Yandara | Premiada no Paris Design Awards 2026 @dna_paris, na categoria Architecture",
+        "url": "https://www.instagram.com/p/DadtVHzjugb/",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/731465296_18601473454048530_8871115435326546706_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=xeXFxoffdnQQ7kNvwGVY2q_&_nc_oc=AdoK-12TZ035ioBhW6XeFfiW7bcfVF-yExpbE7HL1uyAO1nyM4aYwwJ3lXJXqkXT07Ug36G1CPy3NpmdHmeEjhAV&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&oh=00_AQAE1YnsBbVfKQXmX3WSMO2ekxYPqCrvmRou9F83pU6iAg&oe=6A542B49",
+        "date": "2026-07-06",
+        "type": "FEED",
+        "reach": 2301,
+        "views": 4344,
+        "likes": 53,
+        "comments": 9,
+        "saved": 6,
+        "shares": 13,
+        "interactions": 81,
+        "eng_rate": 3.52
+      },
       {
         "caption": "Imersa na paisagem tropical de Santa Cruz Cabrália, a residência FL se abre para o exterio",
         "url": "https://www.instagram.com/p/DZYS9FZmuMK/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/719476108_18593047333048530_947123027808438953_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=2DNxCZ-bSQoQ7kNvwE6oyAy&_nc_oc=AdovPPqHKwaAyfPZ9iVWVn7sTWbCgvSdZJips7LDxSYxaHoHbSmTTvOO8w68H-zImEk&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=6GmzVE6vNA4e7vcQRjYYQw&oh=00_AQDV2RoHWUKXpN2foKW6H_VUKcjCWPCCPC6uphs4c2lefQ&oe=6A50D7BA",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/719476108_18593047333048530_947123027808438953_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=2DNxCZ-bSQoQ7kNvwFNsxvc&_nc_oc=Adp1xziTCoMc7mLttT9OpQiA9ZcsqYXfNgVmtkiAOVcmCUKPkPyE_trQh4mh6_bv6xJoPLbr8pCKVjQ-TRH0lfy1&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&oh=00_AQC6ThT9Ai83-gnQllCtd7JWpfbuowWxx9ittWaP-zpb6g&oe=6A54237A",
         "date": "2026-06-09",
         "type": "FEED",
-        "reach": 1567,
-        "views": 3745,
+        "reach": 1580,
+        "views": 3770,
         "likes": 79,
         "comments": 3,
         "saved": 3,
         "shares": 11,
         "interactions": 96,
-        "eng_rate": 6.13
+        "eng_rate": 6.08
       },
       {
         "caption": "Esculpida em um único bloco de pedra natural com mais de duas toneladas, esta bancada da C",
         "url": "https://www.instagram.com/p/DaBgmN6Go5g/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/730776644_18597884929048530_1903928332472983_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=XPiMlTk0nTkQ7kNvwH99j3z&_nc_oc=AdokvA4iOgWwQBKeyPQrLsThCNuiccd_NTvgeIIv_accn94p3_fb2_lojFojmNFj_Gg&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=6GmzVE6vNA4e7vcQRjYYQw&oh=00_AQBgi7kjLk3HykM7U2OtcE-AzIMjJdopizo2XhiGhK1rNg&oe=6A50F648",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/730776644_18597884929048530_1903928332472983_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Os5G6BARHsYQ7kNvwGiXM9B&_nc_oc=AdqB3wxQZWWeFbW2_K9iohg3nMA6zxzFTVORlfY690lL3aG5CLEksc_auLKdqqQD8WP2qa4DWqb63JbXRJnptsE9&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&oh=00_AQCT8EV8m8YR0oNl4_BdLF0ym7XIb9z1Uox5Pn4rO0PEgg&oe=6A5409C8",
         "date": "2026-06-25",
         "type": "FEED",
-        "reach": 876,
-        "views": 2272,
+        "reach": 898,
+        "views": 2320,
         "likes": 62,
         "comments": 0,
         "saved": 3,
         "shares": 4,
         "interactions": 69,
-        "eng_rate": 7.88
+        "eng_rate": 7.68
       },
       {
         "caption": "Implantada com rigor geométrico às margens do lago, a PCN  evidencia o domínio técnico na ",
         "url": "https://www.instagram.com/reel/DZs5iCTt0Nr/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/726674168_2642668056134928_273664113461620976_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=c4MHKGRfKzkQ7kNvwHPxMlk&_nc_oc=AdpWR6wVez4qs5enq3p62D0lIEyph9jRK_zwcZdYcByThQrWAbgadxx6MzYig3LN8aw&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=6GmzVE6vNA4e7vcQRjYYQw&_nc_tpa=Q5bMBQHmCAVqkFrWPs4i2iIbCd4c8HqP2XKYhg8nGGxwL66LmxqoTr7KyEU4XdaMawA3va13Q2vcAIYV&oh=00_AQCzivgTKxfdzJxcokjc1C7-sjxGlugqv36hoh095vf46Q&oe=6A50E9BE",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/726674168_2642668056134928_273664113461620976_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=13qgqjUvhRoQ7kNvwGiM-3K&_nc_oc=AdoD2VPgUe9yQ5rm8Td8MP81hzry7rLWPobGceFY2KTdju56oAFLLuxZxJauHKyF_AVEgCnORr1Lqpw5IfAC9ZBd&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&_nc_tpa=Q5bMBQEJc431hGUCxTAiYXxoJu5BANGyoaA6bunrNyEvATxerj1GWTkpQvkFKNSlXMJbpAiqvJ_pBmy7&oh=00_AQBdTuYRDq3BuekGGZUh6QuePxgcQzsHW7vYFHkAPmtXsA&oe=6A53FD3E",
         "date": "2026-06-17",
         "type": "REELS",
-        "reach": 823,
-        "views": 1307,
+        "reach": 832,
+        "views": 1321,
         "likes": 42,
         "comments": 2,
         "saved": 2,
         "shares": 2,
         "interactions": 48,
-        "eng_rate": 5.83
+        "eng_rate": 5.77
       },
       {
         "caption": "A matéria da Wallpaper destaca a Casa Xingu, com arquitetura da @tetro.architecture, como ",
         "url": "https://www.instagram.com/p/DaN5SAWjiKi/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/730600117_18599536918048530_7428377288767699373_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=dCnz5Vkx68gQ7kNvwHFWMec&_nc_oc=Adonha-zyzOXCqJb3ktQyBJwXdA_1TAioVIAM2D-bik2GBM0fYORidXX9f2hluy_BfQ&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=6GmzVE6vNA4e7vcQRjYYQw&oh=00_AQCSDkyoQEPEbv0qN6uUkeKZC2OZg3_AeYDe8nZX-rOXXQ&oe=6A50F3FB",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/730600117_18599536918048530_7428377288767699373_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=c5_olmVO_usQ7kNvwFx-ASK&_nc_oc=Ado6FIQrs4qnnXDknO_9v522354UmaZKJkagu1rVHFAvArPutzElRUxbdfqM44XJZ8xSXo7hEbE9qGJqPI5to8A5&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&oh=00_AQAlMeB6wHw6WB6zqNJmEsJW0z5ePDAsDpFa8Nx3B5uSdg&oe=6A54077B",
         "date": "2026-06-30",
         "type": "FEED",
-        "reach": 721,
-        "views": 2378,
-        "likes": 33,
+        "reach": 743,
+        "views": 2422,
+        "likes": 34,
         "comments": 1,
         "saved": 2,
         "shares": 3,
-        "interactions": 39,
-        "eng_rate": 5.41
+        "interactions": 40,
+        "eng_rate": 5.38
       },
       {
         "caption": "REN | MINAS GERAIS\nProjeto Arquitetônico: Jacobsen Arquitetura\nImagens: Fran Parente\nConst",
         "url": "https://www.instagram.com/p/DZnt03eDnZH/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/722859135_18594652432048530_5343955154660605040_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=PxsmXdSswysQ7kNvwEOFWWp&_nc_oc=Adp0zcFJYmdfbF-dPq_vArBGYIhmHJu9MvM7HappjetVp0BybozE_Ih_pp4MjX5zCTw&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=6GmzVE6vNA4e7vcQRjYYQw&oh=00_AQA4zJWer1H120uDMOYiDHvIdWvnItEkgcMLFsovbaV8kg&oe=6A50FB72",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.82787-15/722859135_18594652432048530_5343955154660605040_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=RNilYUy_qXAQ7kNvwGHzVFQ&_nc_oc=AdpBnbdyZadLf0aE2VkESASOFVlD9sEitdMhwwTUjszqQW9rpSU73XydB3TuOg9yHS_Z1vnwfZmnZj1PcLZFKic1&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&oh=00_AQDC_1BiyWmW5c4K00UhKJ4yCW-Qe4t4xl2OO269eRp2_g&oe=6A540EF2",
         "date": "2026-06-15",
         "type": "FEED",
-        "reach": 371,
-        "views": 932,
+        "reach": 381,
+        "views": 951,
         "likes": 28,
         "comments": 0,
         "saved": 1,
         "shares": 1,
         "interactions": 30,
-        "eng_rate": 8.09
+        "eng_rate": 7.87
       }
     ],
     "top_reels": [
       {
         "caption": "Implantada com rigor geométrico às margens do lago, a PCN  evidencia o domínio técnico na ",
         "url": "https://www.instagram.com/reel/DZs5iCTt0Nr/",
-        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/726674168_2642668056134928_273664113461620976_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=c4MHKGRfKzkQ7kNvwHPxMlk&_nc_oc=AdpWR6wVez4qs5enq3p62D0lIEyph9jRK_zwcZdYcByThQrWAbgadxx6MzYig3LN8aw&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=6GmzVE6vNA4e7vcQRjYYQw&_nc_tpa=Q5bMBQHmCAVqkFrWPs4i2iIbCd4c8HqP2XKYhg8nGGxwL66LmxqoTr7KyEU4XdaMawA3va13Q2vcAIYV&oh=00_AQCzivgTKxfdzJxcokjc1C7-sjxGlugqv36hoh095vf46Q&oe=6A50E9BE",
+        "thumb": "https://scontent.cdninstagram.com/v/t51.71878-15/726674168_2642668056134928_273664113461620976_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=13qgqjUvhRoQ7kNvwGiM-3K&_nc_oc=AdoD2VPgUe9yQ5rm8Td8MP81hzry7rLWPobGceFY2KTdju56oAFLLuxZxJauHKyF_AVEgCnORr1Lqpw5IfAC9ZBd&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=yi8ygP1CdtIP97AbOHAOjg&_nc_tpa=Q5bMBQEJc431hGUCxTAiYXxoJu5BANGyoaA6bunrNyEvATxerj1GWTkpQvkFKNSlXMJbpAiqvJ_pBmy7&oh=00_AQBdTuYRDq3BuekGGZUh6QuePxgcQzsHW7vYFHkAPmtXsA&oe=6A53FD3E",
         "date": "2026-06-17",
         "type": "REELS",
-        "reach": 823,
-        "views": 1307,
+        "reach": 832,
+        "views": 1321,
         "likes": 42,
         "comments": 2,
         "saved": 2,
         "shares": 2,
         "interactions": 48,
-        "eng_rate": 5.83
+        "eng_rate": 5.77
       }
     ],
     "hashtags": [],
     "overview": {
       "followers": {
-        "value": 16125,
+        "value": 16134,
         "growth": null
       },
       "new_followers": {
-        "value": 148,
+        "value": 136,
         "growth": null
       },
       "posts": {
-        "value": 5,
+        "value": 6,
         "growth": null
       },
       "views": {
-        "value": 67205,
-        "growth": -54.87
+        "value": 28499,
+        "growth": -91.84
       },
       "reach": {
-        "value": 5629,
-        "growth": -65.03
+        "value": 5448,
+        "growth": -66.34
       },
       "likes": {
-        "value": 640,
-        "growth": -66.12
+        "value": 613,
+        "growth": -66
       },
       "comments": {
-        "value": 10,
-        "growth": -74.36
+        "value": 11,
+        "growth": -69.44
       },
       "engaged": {
-        "value": 333,
-        "growth": -80.2
+        "value": 287,
+        "growth": -82.7
       },
       "interactions": {
-        "value": 791,
-        "growth": -73.84
+        "value": 765,
+        "growth": -73.47
       },
       "engagement_rate": {
-        "value": 5.92,
-        "growth": -43.39
+        "value": 5.27,
+        "growth": -48.6
       }
     }
   },
@@ -1061,18 +1112,10 @@ const REPORT = {
     "url": "https://instagram.com/restaurantemarianilza",
     "color": "#E07A5F",
     "error": null,
-    "followers": 9850,
+    "followers": 9853,
     "media_count": 313,
-    "avatar": "https://scontent.fpoj7-1.fna.fbcdn.net/v/t51.2885-15/267179864_1487730194933775_5517694101770963284_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7d201b&_nc_ohc=MVt_rUO80okQ7kNvwFWFnk6&_nc_oc=Ado7muSHuEeOwjz4CBWt-NWXAjnqpojgvgzU4r3f0QHO9S6CtQK35g7iINdKxQmB0qk&_nc_zt=23&_nc_ht=scontent.fpoj7-1.fna&edm=AL-3X8kEAAAA&oh=00_AQArQ8RhbfbmcDzR52QGel25RNJk9hph1cn2f5_7TIeDRQ&oe=6A50FE03",
+    "avatar": "https://scontent.fplu6-1.fna.fbcdn.net/v/t51.2885-15/267179864_1487730194933775_5517694101770963284_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7d201b&_nc_ohc=FVXIm9_51qEQ7kNvwHXVdxQ&_nc_oc=AdohBg8143SWvyonPH--MJBKAT60IkunXVZbGRnLk32xaUvAMx_lZDe7u531G3vCBdQKTlAqMNLqIAQUxolYIcfc&_nc_zt=23&_nc_ht=scontent.fplu6-1.fna&edm=AL-3X8kEAAAA&oh=00_AQCjCfKzJYhOqTyUgIoHfXhgci8LxsMKlEC9o1JeU0cHEQ&oe=6A541183",
     "reach_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 27
-      },
-      {
-        "date": "2026-06-07",
-        "value": 16
-      },
       {
         "date": "2026-06-08",
         "value": 10
@@ -1180,17 +1223,17 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 19
+      },
+      {
+        "date": "2026-07-05",
+        "value": 12
+      },
+      {
+        "date": "2026-07-06",
+        "value": 8
       }
     ],
     "follow_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 10
-      },
-      {
-        "date": "2026-06-07",
-        "value": 6
-      },
       {
         "date": "2026-06-08",
         "value": 2
@@ -1298,51 +1341,59 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 6
+      },
+      {
+        "date": "2026-07-05",
+        "value": 4
+      },
+      {
+        "date": "2026-07-06",
+        "value": 6
       }
     ],
     "online_hours": [
       598,
-      1055,
-      2183,
-      3361,
-      4039,
-      4259,
-      4315,
-      4401,
-      4602,
-      4684,
-      4532,
-      4461,
-      4519,
-      4669,
-      4863,
-      4856,
-      4882,
-      4848,
-      4296,
-      3154,
-      1902,
-      1051,
-      643,
-      527
+      1054,
+      2179,
+      3356,
+      4048,
+      4264,
+      4317,
+      4407,
+      4608,
+      4695,
+      4541,
+      4464,
+      4531,
+      4671,
+      4870,
+      4880,
+      4893,
+      4851,
+      4303,
+      3165,
+      1911,
+      1056,
+      644,
+      525
     ],
     "online_weekdays": [
-      5093,
-      5223,
+      5237,
+      4184,
       5126,
       5163,
       5133,
       5090,
-      3964
+      4955
     ],
     "demo_gender": [
       {
         "label": "F",
-        "value": 6042
+        "value": 6046
       },
       {
         "label": "M",
-        "value": 2707
+        "value": 2710
       },
       {
         "label": "U",
@@ -1352,23 +1403,23 @@ const REPORT = {
     "demo_age": [
       {
         "label": "35-44",
-        "value": 3127
+        "value": 3131
       },
       {
         "label": "45-54",
-        "value": 2833
+        "value": 2830
       },
       {
         "label": "55-64",
-        "value": 1590
+        "value": 1596
       },
       {
         "label": "25-34",
-        "value": 1542
+        "value": 1540
       },
       {
         "label": "65+",
-        "value": 572
+        "value": 574
       },
       {
         "label": "18-24",
@@ -1382,27 +1433,27 @@ const REPORT = {
     "demo_city": [
       {
         "label": "Porto Seguro, Bahia",
-        "value": 1592
+        "value": 1587
       },
       {
         "label": "São Paulo, São Paulo (state)",
-        "value": 879
+        "value": 874
       },
       {
         "label": "Santa Cruz Cabrália, Bahia",
-        "value": 569
+        "value": 579
       },
       {
         "label": "Belo Horizonte, Minas Gerais",
-        "value": 519
+        "value": 522
       },
       {
         "label": "Eunápolis, Bahia",
-        "value": 470
+        "value": 468
       },
       {
         "label": "Rio de Janeiro, Rio de Janeiro (state)",
-        "value": 358
+        "value": 360
       },
       {
         "label": "Salvador, Bahia",
@@ -1410,11 +1461,11 @@ const REPORT = {
       },
       {
         "label": "Goiânia, Goiás",
-        "value": 164
+        "value": 168
       },
       {
         "label": "Belmonte, Bahia",
-        "value": 76
+        "value": 79
       },
       {
         "label": "Vitória, Espírito Santo",
@@ -1426,17 +1477,17 @@ const REPORT = {
       {
         "caption": "Amanhã tem nosso tradicional Nhoque da Fortuna.\nVenha experimentar as opções e atrair pros",
         "url": "https://www.instagram.com/p/DaIRa9AFinO/",
-        "thumb": "https://scontent.cdninstagram.com/v/t39.30808-6/730732308_1040521471846361_1688834112829392901_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=rb3CzCwFuaIQ7kNvwEm59HR&_nc_oc=AdpHYCWQW0r-Ya1goZyXBzGhZ821J3SuraXH6x9JtIzKuL0qooL0mHqfNJfjvXU3_2Y&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=1NRoh6dh9qZ6ugCbBXHtJA&oh=00_AQDm6OHxENznaij35SlzyJ7hPy0xsL-CcbCNLomfEu1exA&oe=6A50E4A6",
+        "thumb": "https://scontent.cdninstagram.com/v/t39.30808-6/730732308_1040521471846361_1688834112829392901_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=FkHQhhYOxX0Q7kNvwFG7tK2&_nc_oc=AdokDK8UOjQuCOUacCAFRmPUrNdoc_AcuLSjfQv5kaS1-IEN93qpVhMAzEQCUGM0_32XBUOaACQQtXY49LfmcV_c&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=gSmxUtdW_yfgNqcQTQUb7w&oh=00_AQDOCEZkh8T3FYfdHzvE55FkBWzj7QRArFzIuoSq7-Sclg&oe=6A53F826",
         "date": "2026-06-28",
         "type": "FEED",
-        "reach": 303,
-        "views": 477,
+        "reach": 313,
+        "views": 491,
         "likes": 11,
         "comments": 4,
         "saved": 1,
         "shares": 0,
         "interactions": 16,
-        "eng_rate": 5.28
+        "eng_rate": 5.11
       }
     ],
     "top_reels": [],
@@ -1456,11 +1507,11 @@ const REPORT = {
     ],
     "overview": {
       "followers": {
-        "value": 9850,
+        "value": 9853,
         "growth": null
       },
       "new_followers": {
-        "value": 107,
+        "value": 101,
         "growth": null
       },
       "posts": {
@@ -1468,32 +1519,32 @@ const REPORT = {
         "growth": null
       },
       "views": {
-        "value": 7197,
-        "growth": 18.68
+        "value": 6695,
+        "growth": 7.22
       },
       "reach": {
-        "value": 809,
-        "growth": 62.78
+        "value": 785,
+        "growth": 57.63
       },
       "likes": {
-        "value": 51,
-        "growth": -47.42
+        "value": 53,
+        "growth": -11.67
       },
       "comments": {
         "value": 5,
-        "growth": 0
+        "growth": 150
       },
       "engaged": {
-        "value": 66,
-        "growth": -20.48
+        "value": 67,
+        "growth": -2.9
       },
       "interactions": {
         "value": 122,
-        "growth": -25.61
+        "growth": -2.4
       },
       "engagement_rate": {
-        "value": 8.16,
-        "growth": -51.15
+        "value": 8.54,
+        "growth": -38.4
       }
     }
   },
@@ -1506,16 +1557,8 @@ const REPORT = {
     "error": null,
     "followers": 7984,
     "media_count": 305,
-    "avatar": "https://scontent.fpoj7-1.fna.fbcdn.net/v/t51.2885-15/292518275_1689276671459394_2048611686045796226_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=3hBj3XjiQDsQ7kNvwHAPoXI&_nc_oc=AdqQ5JQ2W2jLNHGEt3F2OnAnsHFPiyOaGEB_xjcle6zceruHq9f-9FAZZXmfkR-rm1c&_nc_zt=23&_nc_ht=scontent.fpoj7-1.fna&edm=AL-3X8kEAAAA&oh=00_AQBlZY-R2hNMmjnOwu7O8bnlz4TdrnPFkHkVcia0exEBOw&oe=6A50F69E",
+    "avatar": "https://scontent.fplu6-1.fna.fbcdn.net/v/t51.2885-15/292518275_1689276671459394_2048611686045796226_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=Sz7i7F6IOrQQ7kNvwG-2gS6&_nc_oc=AdrdITcyq6z5ieuyWuxCPDXefLhuxqjMln7Bjh9JysesyD7qYthdoUn5BOQisVaTcyGcN1EhI5lbPc4PEMKvYCfF&_nc_zt=23&_nc_ht=scontent.fplu6-1.fna&edm=AL-3X8kEAAAA&oh=00_AQDJCmLS73-OGl-JATCQfnYJvpegghCSPAIypRQ-3kooyw&oe=6A540A1E",
     "reach_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 577
-      },
-      {
-        "date": "2026-06-07",
-        "value": 537
-      },
       {
         "date": "2026-06-08",
         "value": 117
@@ -1623,17 +1666,17 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 8
+      },
+      {
+        "date": "2026-07-05",
+        "value": 6
+      },
+      {
+        "date": "2026-07-06",
+        "value": 4
       }
     ],
     "follow_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 7
-      },
-      {
-        "date": "2026-06-07",
-        "value": 3
-      },
       {
         "date": "2026-06-08",
         "value": 2
@@ -1741,47 +1784,55 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 2
+      },
+      {
+        "date": "2026-07-05",
+        "value": 5
+      },
+      {
+        "date": "2026-07-06",
+        "value": 4
       }
     ],
     "online_hours": [
-      492,
-      804,
-      1704,
-      2641,
-      3196,
-      3408,
-      3450,
-      3550,
-      3696,
-      3742,
-      3647,
-      3594,
-      3636,
-      3749,
-      3878,
-      3865,
-      3868,
-      3820,
-      3396,
-      2511,
-      1541,
-      870,
-      554,
-      443
+      496,
+      805,
+      1702,
+      2640,
+      3192,
+      3406,
+      3449,
+      3557,
+      3697,
+      3745,
+      3654,
+      3599,
+      3644,
+      3747,
+      3877,
+      3883,
+      3880,
+      3827,
+      3400,
+      2515,
+      1549,
+      872,
+      555,
+      442
     ],
     "online_weekdays": [
-      4055,
-      4154,
+      4129,
+      3332,
       4062,
       4077,
       4086,
       4049,
-      3145
+      3931
     ],
     "demo_gender": [
       {
         "label": "F",
-        "value": 4566
+        "value": 4561
       },
       {
         "label": "M",
@@ -1789,13 +1840,13 @@ const REPORT = {
       },
       {
         "label": "U",
-        "value": 1105
+        "value": 1111
       }
     ],
     "demo_age": [
       {
         "label": "35-44",
-        "value": 2675
+        "value": 2678
       },
       {
         "label": "45-54",
@@ -1803,15 +1854,15 @@ const REPORT = {
       },
       {
         "label": "25-34",
-        "value": 1613
+        "value": 1609
       },
       {
         "label": "55-64",
-        "value": 987
+        "value": 988
       },
       {
         "label": "65+",
-        "value": 383
+        "value": 384
       },
       {
         "label": "18-24",
@@ -1825,23 +1876,23 @@ const REPORT = {
     "demo_city": [
       {
         "label": "Porto Seguro, Bahia",
-        "value": 2077
+        "value": 2083
       },
       {
         "label": "Santa Cruz Cabrália, Bahia",
-        "value": 931
+        "value": 927
       },
       {
         "label": "São Paulo, São Paulo (state)",
-        "value": 578
+        "value": 577
       },
       {
         "label": "Eunápolis, Bahia",
-        "value": 547
+        "value": 541
       },
       {
         "label": "Belo Horizonte, Minas Gerais",
-        "value": 412
+        "value": 411
       },
       {
         "label": "Salvador, Bahia",
@@ -1849,19 +1900,19 @@ const REPORT = {
       },
       {
         "label": "Rio de Janeiro, Rio de Janeiro (state)",
-        "value": 185
+        "value": 187
+      },
+      {
+        "label": "Goiânia, Goiás",
+        "value": 70
       },
       {
         "label": "Nova Lima, Minas Gerais",
         "value": 69
       },
       {
-        "label": "Goiânia, Goiás",
-        "value": 68
-      },
-      {
         "label": "Teixeira de Freitas, Bahia",
-        "value": 67
+        "value": 66
       }
     ],
     "posts_period": 0,
@@ -1874,7 +1925,7 @@ const REPORT = {
         "growth": null
       },
       "new_followers": {
-        "value": 102,
+        "value": 101,
         "growth": null
       },
       "posts": {
@@ -1882,32 +1933,32 @@ const REPORT = {
         "growth": null
       },
       "views": {
-        "value": 12738,
-        "growth": 76.16
+        "value": 10100,
+        "growth": 9.09
       },
       "reach": {
-        "value": 2796,
-        "growth": 115.24
+        "value": 2170,
+        "growth": 16.54
       },
       "likes": {
-        "value": 144,
-        "growth": 92
+        "value": 116,
+        "growth": 26.09
       },
       "comments": {
         "value": 0,
         "growth": -100
       },
       "engaged": {
-        "value": 99,
-        "growth": 26.92
+        "value": 90,
+        "growth": 2.27
       },
       "interactions": {
-        "value": 269,
-        "growth": 118.7
+        "value": 220,
+        "growth": 40.13
       },
       "engagement_rate": {
-        "value": 3.54,
-        "growth": -41.03
+        "value": 4.15,
+        "growth": -12.24
       }
     }
   },
@@ -1918,18 +1969,10 @@ const REPORT = {
     "url": "https://instagram.com/bahiakatz",
     "color": "#00B4D8",
     "error": null,
-    "followers": 5896,
+    "followers": 5902,
     "media_count": 881,
-    "avatar": "https://scontent.fpoj7-1.fna.fbcdn.net/v/t51.75761-15/491424021_17899170483187064_3157151958842738392_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=zL6G8EURTpgQ7kNvwHBhI8i&_nc_oc=AdqfyXOOLy5qmJUGu8cH9E4zfuopv35vRTjkYtug6yhxhpVJBj1oqQudjS6snpU_CyM&_nc_zt=23&_nc_ht=scontent.fpoj7-1.fna&edm=AL-3X8kEAAAA&_nc_gid=QwACYAS4j_y6QRD35OAC_g&oh=00_AQCe7ypy443ahyzvaLaZ2OREd_xBtzRI-37C7gzuX_dWCQ&oe=6A50E587",
+    "avatar": "https://scontent.fplu6-1.fna.fbcdn.net/v/t51.75761-15/491424021_17899170483187064_3157151958842738392_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_ohc=u9uKjuuTeLIQ7kNvwH1cQCz&_nc_oc=Adq_XiZJgYp3zh0CD_-Mnw7PzFZenEycue-R7KuTtK6kFusGQl3UyNHRTkp0W3kcBBT6YCSnKj3JK2LT6TGQy0Ws&_nc_zt=23&_nc_ht=scontent.fplu6-1.fna&edm=AL-3X8kEAAAA&_nc_gid=OM7-RIwtnGumnUJDUPRkAA&oh=00_AQDTvlf2d5XEJTlI-7sAkHK860F9faovLQ1hs5zABKCF4Q&oe=6A53F907",
     "reach_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 83
-      },
-      {
-        "date": "2026-06-07",
-        "value": 95
-      },
       {
         "date": "2026-06-08",
         "value": 60
@@ -2037,17 +2080,17 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 82
+      },
+      {
+        "date": "2026-07-05",
+        "value": 56
+      },
+      {
+        "date": "2026-07-06",
+        "value": 63
       }
     ],
     "follow_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 2
-      },
-      {
-        "date": "2026-06-07",
-        "value": 3
-      },
       {
         "date": "2026-06-08",
         "value": 3
@@ -2155,47 +2198,55 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 1
+      },
+      {
+        "date": "2026-07-05",
+        "value": 1
+      },
+      {
+        "date": "2026-07-06",
+        "value": 5
       }
     ],
     "online_hours": [
-      467,
-      697,
-      1275,
-      1920,
-      2291,
-      2408,
-      2412,
-      2450,
-      2583,
-      2620,
-      2544,
-      2496,
-      2547,
-      2632,
-      2743,
-      2727,
-      2681,
-      2624,
-      2343,
-      1775,
-      1126,
-      674,
-      465,
-      411
+      466,
+      696,
+      1272,
+      1915,
+      2294,
+      2411,
+      2416,
+      2452,
+      2582,
+      2623,
+      2546,
+      2502,
+      2552,
+      2622,
+      2737,
+      2736,
+      2687,
+      2625,
+      2344,
+      1779,
+      1131,
+      676,
+      466,
+      410
     ],
     "online_weekdays": [
-      2896,
-      2935,
+      2952,
+      2352,
       2857,
       2849,
       2865,
       2886,
-      2213
+      2767
     ],
     "demo_gender": [
       {
         "label": "M",
-        "value": 3534
+        "value": 3538
       },
       {
         "label": "F",
@@ -2203,17 +2254,17 @@ const REPORT = {
       },
       {
         "label": "U",
-        "value": 901
+        "value": 902
       }
     ],
     "demo_age": [
       {
         "label": "45-54",
-        "value": 1830
+        "value": 1831
       },
       {
         "label": "35-44",
-        "value": 1652
+        "value": 1654
       },
       {
         "label": "55-64",
@@ -2221,7 +2272,7 @@ const REPORT = {
       },
       {
         "label": "25-34",
-        "value": 674
+        "value": 676
       },
       {
         "label": "65+",
@@ -2239,43 +2290,43 @@ const REPORT = {
     "demo_city": [
       {
         "label": "São Paulo, São Paulo (state)",
-        "value": 664
+        "value": 665
       },
       {
         "label": "Belo Horizonte, Minas Gerais",
-        "value": 424
+        "value": 427
       },
       {
         "label": "Porto Seguro, Bahia",
-        "value": 325
+        "value": 321
       },
       {
         "label": "Salvador, Bahia",
-        "value": 228
+        "value": 231
       },
       {
         "label": "Rio de Janeiro, Rio de Janeiro (state)",
-        "value": 153
-      },
-      {
-        "label": "Nova Lima, Minas Gerais",
-        "value": 108
+        "value": 155
       },
       {
         "label": "Santa Cruz Cabrália, Bahia",
+        "value": 110
+      },
+      {
+        "label": "Nova Lima, Minas Gerais",
         "value": 106
       },
       {
         "label": "Goiânia, Goiás",
-        "value": 98
+        "value": 100
       },
       {
         "label": "Eunápolis, Bahia",
-        "value": 61
+        "value": 63
       },
       {
         "label": "Curitiba, Paraná",
-        "value": 59
+        "value": 58
       }
     ],
     "posts_period": 0,
@@ -2284,11 +2335,11 @@ const REPORT = {
     "hashtags": [],
     "overview": {
       "followers": {
-        "value": 5896,
+        "value": 5902,
         "growth": null
       },
       "new_followers": {
-        "value": 63,
+        "value": 64,
         "growth": null
       },
       "posts": {
@@ -2296,32 +2347,32 @@ const REPORT = {
         "growth": null
       },
       "views": {
-        "value": 6259,
-        "growth": -23.39
+        "value": 5991,
+        "growth": -22.4
       },
       "reach": {
-        "value": 1974,
-        "growth": -24.43
+        "value": 1882,
+        "growth": -23.09
       },
       "likes": {
         "value": 71,
-        "growth": -56.44
+        "growth": -50.35
       },
       "comments": {
         "value": 13,
-        "growth": 8.33
+        "growth": 44.44
       },
       "engaged": {
-        "value": 107,
-        "growth": -32.28
+        "value": 103,
+        "growth": -30.87
       },
       "interactions": {
-        "value": 181,
-        "growth": -46.76
+        "value": 175,
+        "growth": -42.62
       },
       "engagement_rate": {
-        "value": 5.42,
-        "growth": -10.39
+        "value": 5.47,
+        "growth": -10.12
       }
     }
   },
@@ -2334,16 +2385,8 @@ const REPORT = {
     "error": null,
     "followers": 54,
     "media_count": 13,
-    "avatar": "https://scontent.fpoj7-1.fna.fbcdn.net/v/t51.82787-15/560603382_17846060259581272_243465049270405890_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7d201b&_nc_ohc=QHe8-YXgSmMQ7kNvwH7cJk1&_nc_oc=AdqUOfvs20vVAiPQ2prIe6W9H6lnVZwWlAucDl6ajNkCnb1NO5ljl12Lgg-W_2z8a4c&_nc_zt=23&_nc_ht=scontent.fpoj7-1.fna&edm=AL-3X8kEAAAA&_nc_gid=DesxSp_wm5u-CHemvUKAVQ&oh=00_AQD4cCW1jMSGJRJeuOfDaTzx0o7Fl2Yj4K4Q4IS99RS8yw&oe=6A50E358",
+    "avatar": "https://scontent.fplu6-1.fna.fbcdn.net/v/t51.82787-15/560603382_17846060259581272_243465049270405890_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7d201b&_nc_ohc=VQqpaKBuKcwQ7kNvwHOa26O&_nc_oc=AdoOiAMiOM2lKc3SSvbcr42sGrCTl78cVr9POfeNjDqg0cVFGMSA90yHKH5Bwb6u8Iq_lCpdGL92g54BAT6lzXC6&_nc_zt=23&_nc_ht=scontent.fplu6-1.fna&edm=AL-3X8kEAAAA&_nc_gid=BEbAczLa2sBqugvw-8Ir4A&oh=00_AQAkV1u8fqUdojUckNP3ILAUlBYpVu_nvrAbPLdO7Qtxxg&oe=6A53F6D8",
     "reach_daily": [
-      {
-        "date": "2026-06-06",
-        "value": 4
-      },
-      {
-        "date": "2026-06-07",
-        "value": 1
-      },
       {
         "date": "2026-06-08",
         "value": 1
@@ -2451,6 +2494,14 @@ const REPORT = {
       {
         "date": "2026-07-04",
         "value": 2
+      },
+      {
+        "date": "2026-07-05",
+        "value": 0
+      },
+      {
+        "date": "2026-07-06",
+        "value": 0
       }
     ],
     "follow_daily": [],
@@ -2510,12 +2561,12 @@ const REPORT = {
         "growth": null
       },
       "views": {
-        "value": 39,
-        "growth": -35
+        "value": 34,
+        "growth": -49.25
       },
       "reach": {
-        "value": 32,
-        "growth": 45.45
+        "value": 27,
+        "growth": 3.85
       },
       "likes": {
         "value": 1,
@@ -2534,7 +2585,7 @@ const REPORT = {
         "growth": null
       },
       "engagement_rate": {
-        "value": 3.13,
+        "value": 3.7,
         "growth": null
       }
     }

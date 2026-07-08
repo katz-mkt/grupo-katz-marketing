@@ -9,6 +9,11 @@ historico.js
 importar-meta.js
 auto-update.ps1
 
+# Credenciais e dependências (nunca versionar)
+credentials.json
+node_modules/
+update.log
+
 # Arquivos de sistema
 Thumbs.db
 .DS_Store

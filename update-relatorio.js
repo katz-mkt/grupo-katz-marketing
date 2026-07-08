@@ -238,4 +238,30 @@ const REPORT = {
   console.log('\n✓ report-data.js gerado');
 }
 
-main().catch(e => { console.error('Erro fatal:', e.message); process.exit(1); });
+// Coleta os dados de todas as contas e devolve o objeto (sem escrever arquivo).
+// Usado pelo sync-base.js para alimentar o Google Sheets.
+async function collectAll() {
+  const now = new Date();
+  const until = new Date(now); until.setDate(until.getDate() - 1);
+  const since = new Date(until); since.setDate(since.getDate() - 29);
+  const prevUntil = new Date(since); prevUntil.setDate(prevUntil.getDate() - 1);
+  const prevSince = new Date(prevUntil); prevSince.setDate(prevSince.getDate() - 29);
+  const S = fmtDate(since), U = fmtDate(until), PS = fmtDate(prevSince), PU = fmtDate(prevUntil);
+
+  const accounts = [];
+  for (const acc of ACCOUNTS) {
+    try { accounts.push(await collectAccount(acc, S, U, PS, PU)); }
+    catch (e) { accounts.push({ id: acc.id, name: acc.name, username: acc.username, color: acc.color, error: e.message }); }
+  }
+  return {
+    accounts,
+    period: { since, until, prevSince, prevUntil },
+    now
+  };
+}
+
+module.exports = { collectAll, collectAccount, ACCOUNTS, fmtDate, brDate };
+
+if (require.main === module) {
+  main().catch(e => { console.error('Erro fatal:', e.message); process.exit(1); });
+}
