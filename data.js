@@ -1,14 +1,14 @@
-// DADOS DO DASHBOARD — gerado automaticamente em 28/09/2026
+// DADOS DO DASHBOARD — gerado automaticamente em 05/10/2026
 // followers e posts: via API Instagram (update.js)
 // reach, impressions, engagement, posts_week, stories_week, reels_week:
 //   inserir manualmente via Meta Business Suite
 
 const DATA = {
   meta: {
-    lastUpdated : "28/09/2026",
-    nextUpdate  : "05/10/2026",
-    week        : 40,
-    period      : "28/09 – 04/10/2026"
+    lastUpdated : "05/10/2026",
+    nextUpdate  : "12/10/2026",
+    week        : 41,
+    period      : "05/10 – 11/10/2026"
   },
 
   instagram: [
@@ -18,7 +18,7 @@ const DATA = {
       username : "@katz.life.style",
       url      : "https://instagram.com/katz.life.style",
       color    : "#C9A96E",
-      followers: 47953,
+      followers: 48087,
       posts    : 1333,
       new_followers : null,
       reach         : null,
@@ -42,8 +42,8 @@ const DATA = {
       username : "@hauzconstrucoes",
       url      : "https://instagram.com/hauzconstrucoes",
       color    : "#2E86AB",
-      followers: 16401,
-      posts    : 624,
+      followers: 16408,
+      posts    : 625,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -66,8 +66,8 @@ const DATA = {
       username : "@restaurantemarianilza",
       url      : "https://instagram.com/restaurantemarianilza",
       color    : "#E07A5F",
-      followers: 10061,
-      posts    : 316,
+      followers: 10077,
+      posts    : 319,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -90,7 +90,7 @@ const DATA = {
       username : "@pierjoaodetiba",
       url      : "https://instagram.com/pierjoaodetiba",
       color    : "#9B5DE5",
-      followers: 8110,
+      followers: 8113,
       posts    : 303,
       new_followers : null,
       reach         : null,
@@ -397,6 +397,18 @@ const DATA = {
               "hauz": 16401,
               "marianilza": 10061,
               "pierjoao": 8110,
+              "bahiakatz": 5930,
+              "casaararipe": 55
+          }
+      },
+      {
+          "date": "05/10/2026",
+          "week": 41,
+          "followers": {
+              "katz": 48087,
+              "hauz": 16408,
+              "marianilza": 10077,
+              "pierjoao": 8113,
               "bahiakatz": 5930,
               "casaararipe": 55
           }
