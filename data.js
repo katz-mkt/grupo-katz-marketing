@@ -1,14 +1,14 @@
-// DADOS DO DASHBOARD — gerado automaticamente em 05/10/2026
+// DADOS DO DASHBOARD — gerado automaticamente em 12/10/2026
 // followers e posts: via API Instagram (update.js)
 // reach, impressions, engagement, posts_week, stories_week, reels_week:
 //   inserir manualmente via Meta Business Suite
 
 const DATA = {
   meta: {
-    lastUpdated : "05/10/2026",
-    nextUpdate  : "12/10/2026",
-    week        : 41,
-    period      : "05/10 – 11/10/2026"
+    lastUpdated : "12/10/2026",
+    nextUpdate  : "19/10/2026",
+    week        : 42,
+    period      : "12/10 – 18/10/2026"
   },
 
   instagram: [
@@ -18,8 +18,8 @@ const DATA = {
       username : "@katz.life.style",
       url      : "https://instagram.com/katz.life.style",
       color    : "#C9A96E",
-      followers: 48087,
-      posts    : 1333,
+      followers: 48092,
+      posts    : 1334,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -42,7 +42,7 @@ const DATA = {
       username : "@hauzconstrucoes",
       url      : "https://instagram.com/hauzconstrucoes",
       color    : "#2E86AB",
-      followers: 16408,
+      followers: 16418,
       posts    : 625,
       new_followers : null,
       reach         : null,
@@ -66,8 +66,8 @@ const DATA = {
       username : "@restaurantemarianilza",
       url      : "https://instagram.com/restaurantemarianilza",
       color    : "#E07A5F",
-      followers: 10077,
-      posts    : 319,
+      followers: 10092,
+      posts    : 320,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -90,8 +90,8 @@ const DATA = {
       username : "@pierjoaodetiba",
       url      : "https://instagram.com/pierjoaodetiba",
       color    : "#9B5DE5",
-      followers: 8113,
-      posts    : 303,
+      followers: 8138,
+      posts    : 306,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -114,7 +114,7 @@ const DATA = {
       username : "@bahiakatz",
       url      : "https://instagram.com/bahiakatz",
       color    : "#00B4D8",
-      followers: 5930,
+      followers: 5934,
       posts    : 880,
       new_followers : null,
       reach         : null,
@@ -138,7 +138,7 @@ const DATA = {
       username : "@casadoararipe",
       url      : "https://instagram.com/casadoararipe",
       color    : "#52B788",
-      followers: 55,
+      followers: 56,
       posts    : 13,
       new_followers : null,
       reach         : null,
@@ -411,6 +411,18 @@ const DATA = {
               "pierjoao": 8113,
               "bahiakatz": 5930,
               "casaararipe": 55
+          }
+      },
+      {
+          "date": "12/10/2026",
+          "week": 42,
+          "followers": {
+              "katz": 48092,
+              "hauz": 16418,
+              "marianilza": 10092,
+              "pierjoao": 8138,
+              "bahiakatz": 5934,
+              "casaararipe": 56
           }
       }
   ]
