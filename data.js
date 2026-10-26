@@ -1,14 +1,14 @@
-// DADOS DO DASHBOARD — gerado automaticamente em 19/10/2026
+// DADOS DO DASHBOARD — gerado automaticamente em 26/10/2026
 // followers e posts: via API Instagram (update.js)
 // reach, impressions, engagement, posts_week, stories_week, reels_week:
 //   inserir manualmente via Meta Business Suite
 
 const DATA = {
   meta: {
-    lastUpdated : "19/10/2026",
-    nextUpdate  : "26/10/2026",
-    week        : 43,
-    period      : "19/10 – 25/10/2026"
+    lastUpdated : "26/10/2026",
+    nextUpdate  : "02/11/2026",
+    week        : 44,
+    period      : "26/10 – 01/11/2026"
   },
 
   instagram: [
@@ -18,8 +18,8 @@ const DATA = {
       username : "@katz.life.style",
       url      : "https://instagram.com/katz.life.style",
       color    : "#C9A96E",
-      followers: 48052,
-      posts    : 1337,
+      followers: 48072,
+      posts    : 1340,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -42,8 +42,8 @@ const DATA = {
       username : "@hauzconstrucoes",
       url      : "https://instagram.com/hauzconstrucoes",
       color    : "#2E86AB",
-      followers: 16419,
-      posts    : 626,
+      followers: 16424,
+      posts    : 627,
       new_followers : null,
       reach         : null,
       impressions   : null,
@@ -66,7 +66,7 @@ const DATA = {
       username : "@restaurantemarianilza",
       url      : "https://instagram.com/restaurantemarianilza",
       color    : "#E07A5F",
-      followers: 10102,
+      followers: 10105,
       posts    : 320,
       new_followers : null,
       reach         : null,
@@ -90,7 +90,7 @@ const DATA = {
       username : "@pierjoaodetiba",
       url      : "https://instagram.com/pierjoaodetiba",
       color    : "#9B5DE5",
-      followers: 8168,
+      followers: 8169,
       posts    : 305,
       new_followers : null,
       reach         : null,
@@ -114,7 +114,7 @@ const DATA = {
       username : "@bahiakatz",
       url      : "https://instagram.com/bahiakatz",
       color    : "#00B4D8",
-      followers: 5931,
+      followers: 5924,
       posts    : 880,
       new_followers : null,
       reach         : null,
@@ -434,6 +434,18 @@ const DATA = {
               "marianilza": 10102,
               "pierjoao": 8168,
               "bahiakatz": 5931,
+              "casaararipe": 56
+          }
+      },
+      {
+          "date": "26/10/2026",
+          "week": 44,
+          "followers": {
+              "katz": 48072,
+              "hauz": 16424,
+              "marianilza": 10105,
+              "pierjoao": 8169,
+              "bahiakatz": 5924,
               "casaararipe": 56
           }
       }
